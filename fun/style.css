@@ -1,0 +1,50 @@
+body {
+    /*
+    font-family: 'Raleway', sans-serif;
+    */
+
+    background-color: cornflowerblue;
+    color: white;
+    padding-top: 15px;
+}
+
+.bash {
+    background-color: #222;
+    border-radius: 5px;
+    padding: 0;
+    overflow: hidden;
+    width:800px;
+    margin: 0 auto;
+}
+
+.bash .bash-title {
+    background-color: #ccc;
+    height: 30px;
+    width:100%;
+    text-align: left;
+}
+
+.bash .bash-title .buttons {
+    width: 100px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: left;
+    display: inline-block;
+}
+
+.bash .bash-title .buttons .button{
+    width:15px;
+    height:15px;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+}
+
+.bash .bash-title .buttons .button:hover {
+    opacity: 0.5;
+}
+
+.bash .bash-content {
+    min-height: 75px;
+    padding:5px;
+}
