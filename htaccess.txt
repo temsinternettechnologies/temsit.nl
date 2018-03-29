@@ -1,2 +1,5 @@
 originele:          temsit.nl/subsite/?p=over-ons
 geconverteerde:     temsit.nl/over-ons/
+
+originele:          temsit.nl/subsite/?p=over-ons&id=1
+geconverteerde:     temsit.nl/over-ons/1/
