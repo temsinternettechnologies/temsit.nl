@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="">
+    <link rel="icon" href="../assets/img/code-flat.png">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 

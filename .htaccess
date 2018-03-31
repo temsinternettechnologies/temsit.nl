@@ -1,2 +1,8 @@
-Redirect 301 / /fun/
-RewriteRule ^/$ /fun/ [R=301]
+
+
+ <IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif|bmp|js|ico)  [NC]
+ RewriteCond %{REQUEST_URI} !fun/
+ RewriteRule ^(.*)$ /fun/ [R=302,L]
+ </IfModule>
