@@ -13,28 +13,39 @@ body {
     border-radius: 5px;
     padding: 0;
     overflow: hidden;
-    width:800px;
+    width: 94%;
+    height: 20vh;
     margin: 0 auto;
+    box-shadow: 0 0 10px #995599;
 }
 
 .bash .bash-title {
+    position: relative;
     background-color: #ccc;
     height: 30px;
-    width:100%;
+    width: 100%;
     text-align: left;
 }
 
+.bash .bash-title p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: calc(100%);
+}
+
 .bash .bash-title .buttons {
-    width: 100px;
+    width: 20%;
     padding-left: 10px;
     padding-top: 5px;
     text-align: left;
     display: inline-block;
 }
 
-.bash .bash-title .buttons .button{
-    width:15px;
-    height:15px;
+.bash .bash-title .buttons .button {
+    width: 15px;
+    height: 15px;
     border-radius: 10px;
     display: inline-block;
     color: white;
@@ -46,5 +57,11 @@ body {
 
 .bash .bash-content {
     min-height: 75px;
-    padding:5px;
+    padding: 5px;
+}
+
+.bash-input {
+    background-color: transparent;
+    border: none;
+    color: white;
 }
