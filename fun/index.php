@@ -1,3 +1,6 @@
+<?php
+require_once('database.php');
+?>
 <!doctype html>
 <html lang="nl">
 <head>
