@@ -1,3 +1,6 @@
+<?php
+require_once('core/init.php');
+?>
 <!doctype html>
 <html lang="nl">
 <?php

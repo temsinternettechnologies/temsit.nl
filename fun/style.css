@@ -65,3 +65,12 @@ body {
     border: none;
     color: white;
 }
+
+.false-validate {
+    border-bottom: solid 5px #cc5050 !important;
+    box-shadow: 0 0 5px #555;
+}
+
+.form-control {
+    transition: all 0.3s;
+}

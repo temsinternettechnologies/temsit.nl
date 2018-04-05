@@ -1,3 +1,9 @@
+<?php
+require_once('../core/init.php');
+if(Database::insert("abonnees", $_POST["data"])){
+    Cookies::setCookie("subscribed", true);
+}
+?>
 <html>
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
