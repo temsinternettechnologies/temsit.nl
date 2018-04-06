@@ -25,7 +25,7 @@ class Cookies
             setcookie($key, $value, self::$expiration, self::$path);
             return true;
         } catch (Exception $e) {
-            if (strpos($_SERVER['HTTP_HOST'], "dev") === 0) {
+            if (strpos($_SERVER['HTTP_HOST'], "dev")  === 0 || strpos($_SERVER['HTTP_HOST'], "local") === 0) {
                 var_dump($e->getMessage());
                 var_dump($e->getTraceAsString());
                 exit;
@@ -44,7 +44,7 @@ class Cookies
                 return false;
             }
         } catch (Exception $e) {
-            if (strpos($_SERVER['HTTP_HOST'], "dev") === 0) {
+            if (strpos($_SERVER['HTTP_HOST'], "dev" || strpos($_SERVER['HTTP_HOST'], "local") === 0) {
                 var_dump($e->getMessage());
                 var_dump($e->getTraceAsString());
                 exit;
