@@ -1,0 +1,29 @@
+{
+    "title": "temsit.nl",
+    "name": "temsit.nl",
+    "version": "4.0.0",
+    "description": "the temsit.nl website built with Bootstrap",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "https://temsit.nl",
+    "author": "temsit.nl",
+    "contributors": [
+        "Menno Spijker"
+    ],
+    "dependencies": {
+        "simple-line-icons": "^2.4.1"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-clean-css": "3.9.2",
+        "gulp-header": "2.0.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0"
+    }
+}
