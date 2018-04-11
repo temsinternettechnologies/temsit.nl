@@ -1,0 +1,35 @@
+body {
+  @include body-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include body-font;
+  font-weight: 700;
+}
+
+.btn-orange {
+  color: #fff;
+  background-color: $orange;
+  border-color: $orange;
+}
+.btn-orange:hover {
+  background-color: $darkOrange;
+  border-color: $darkOrange;
+}
+
+.icon-size-actual:before, .icon-layers:before, .icon-speedometer:before {
+  color: $indigo;
+  transition: font-size 200ms;
+}
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration:none;
+  color:$dark;
+}
