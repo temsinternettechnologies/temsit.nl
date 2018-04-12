@@ -8,7 +8,7 @@ require_once('../core/init.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../assets/img/code-flat.png?build=<?= BUILD ?>">
+    <link rel="icon" href="../opzet1/assets/img/code-flat.png?build=<?= BUILD ?>">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 

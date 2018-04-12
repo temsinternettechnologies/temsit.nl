@@ -14,7 +14,7 @@ require_once 'core/head.php';
     require_once 'core/nav.php';
     ?>
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark"
-         style="background: url('assets/img/codeblur.png'); background-size: cover;">
+         style="background: url('opzet1/assets/img/codeblur.png'); background-size: cover;">
         <div class="col-md-6 px-0">
             <h1 class="display-4 font-italic">TEMS Internet Technologies</h1>
             <p class="lead my-3">Het op 23 Maart 2018 door Tycho Engberink en Menno Spijker opgerichte bedrijf dat
@@ -37,7 +37,7 @@ require_once 'core/head.php';
                     <a href="#">Lees verder</a>
                 </div>
                 <div class="card-img-right flex-auto d-none d-md-block bg-dark text-light"
-                     style="background: url('assets/img/noimg.jpeg'); background-size: cover; background-position: center; width: 220px"></div>
+                     style="background: url('opzet1/assets/img/noimg.jpeg'); background-size: cover; background-position: center; width: 220px"></div>
             </div>
         </div>
         <div class="col-md-6">
@@ -53,7 +53,7 @@ require_once 'core/head.php';
                     <a href="#">Lees verder</a>
                 </div>
                 <div class="card-img-right flex-auto d-none d-md-block bg-dark text-light"
-                     style="background: url('assets/img/noimg.jpeg'); background-size: cover; background-position: center; width: 220px"></div>
+                     style="background: url('opzet1/assets/img/noimg.jpeg'); background-size: cover; background-position: center; width: 220px"></div>
             </div>
         </div>
     </div>

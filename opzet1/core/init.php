@@ -1,6 +1,6 @@
 <?php
-    require_once "../classes/Database.class.php";
-    require_once "../classes/Cookies.class.php";
+    require_once "classes/Database.class.php";
+    require_once "classes/Cookies.class.php";
 
     define("BUILD", dechex(2));
 
