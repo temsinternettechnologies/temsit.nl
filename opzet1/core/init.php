@@ -1,8 +1,8 @@
 <?php
-    require_once "../classes/Database.class.php";
-    require_once "../classes/Cookies.class.php";
+    require_once "classes/Database.class.php";
+    require_once "classes/Cookies.class.php";
 
-    define("BUILD", 1);
+    define("BUILD", dechex(2));
 
     define("HOST_ONLINE", "localhost");
     define("USERNAME", "temsit");

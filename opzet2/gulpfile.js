@@ -50,8 +50,7 @@ gulp.task('css:minify', ['css:compile'], function() {
       suffix: '.min'
     }))
     .pipe(gulp.dest('./css'))
-    .pipe(browserSync.stream());
-});
+s});
 
 // CSS
 gulp.task('css', ['css:compile', 'css:minify']);

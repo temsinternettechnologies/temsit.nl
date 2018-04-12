@@ -18,17 +18,25 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
             integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
             crossorigin="anonymous"></script>
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
           type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../css/style.min.css" rel="stylesheet">
 
+    <style>
+        header.masthead {
+            padding: 0;
+        }
+
+        .testimonials .testimonial-item img {
+            box-shadow: 0 5px 5px 0 rgba(1,1,1,0.5);
+        }
+    </style>
 </head>
 
 <body>
-
 <!-- Navigation -->
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
@@ -43,112 +51,67 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto">
-                <h1 class="mb-5">TEMS Internet Technologies<br/>Dé website bouwer voor starters!</h1>
-            </div>
-            <div class="col-md-12 col-lg-10 col-xl-8 mx-auto">
-                <div class="form-row" id="form-top">
-                    <div class="col-12 col-md-8 mb-2 mb-md-0">
-                        <input type="email" id="form-top-input" class="form-control form-control-lg"
-                               placeholder="vul hier jouw emailadres in..." data-toggle="tooltip" data-html="true"
-                               data-placement="bottom"
-                               title="<div style='padding:5px 10px'>Dit is geen emailadres...</div>">
+                <section class="testimonials text-center">
+                    <div class="container">
+                        <h2 class="mb-5">TemsIT, wie zijn dat eigenlijk?</h2>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                                    <img class="img-fluid rounded-circle mb-3" src="../img/tycho.jpg" alt="Tycho E.">
+                                    <h5>Tycho Engberink</h5>
+                                    <p class="font-weight-light mb-0">"Ik ben Tycho."</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                                    <img class="img-fluid rounded-circle mb-3" src="../img/menno.jpg" alt="Menno S.">
+                                    <h5>Menno Spijker</h5>
+                                    <p class="font-weight-light mb-0">"Ik Menno, een spontane en creatieve student in de
+                                        sector ICT.
+                                        Mijn interesses liggen merendeels in computers maar ook zeker in het
+                                        buitenleven."</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <button id="form-top-btn" class="btn btn-block btn-lg btn-orange">Meer informatie!</button>
-                        <!-- TODO: send mail asking for more contact information -->
-                    </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
 </header>
 
 <!-- Icons Grid -->
-<section class="features-icons bg-half-light text-center">
+<section class="features-icons bg-light text-center">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-size-actual m-auto text-primary"></i>
+                        <i class="icon-map m-auto text-primary"></i>
                     </div>
-                    <h3>Volledig resposive</h3>
-                    <p class="lead mb-0">De websites die door ons ontwikkeld zijn zien er goed uit op elk apparaat, voor
-                        elk formaat!</p>
+                    <h3>Apeldoorn</h3>
+                    <p class="lead mb-0">Tems IT is bedacht door twee studenten uit Apeldoorn. Zij wilen graag hun
+                        verkregen kennis gebruiken om mensen te helpen.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-layers m-auto text-primary"></i>
+                        <i class="icon-book-open m-auto text-primary"></i>
                     </div>
-                    <h3>Bootstrap 4</h3>
-                    <p class="lead mb-0">Wij maken gebruik van het betrouwbare Bootstrap 4 Framework!</p>
+                    <h3>Studenten</h3>
+                    <p class="lead mb-0">Wij zijn twee studenten, dit betekend dat wij nog veel aan het leren zijn en zo
+                        steeds een beetje extra kunnen leveren aan een top product.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-speedometer m-auto text-primary"></i>
+                        <i class="icon-call-in m-auto text-primary"></i>
                     </div>
-                    <h3>Snel in gebruik</h3>
-                    <p class="lead mb-0">Onze websites worden specifiek ontwikkeld om snel te werken op elke
-                        apparaat!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Image Showcases -->
-<section class="showcase">
-    <div class="container-fluid p-0">
-        <div class="row no-gutters">
-
-            <div class="col-lg-6 order-lg-2 text-white showcase-img"
-                 style="background-image: url('img/bg-showcase-1.jpg');"></div>
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                <h2>Beschikbaarheid op alle apparaten</h2>
-                <p class="lead mb-0">Omdat wij gebruik maken van het Bootstrap 4 Framework zijn al onze websites mooi op
-                    alle apparaten, </p>
-            </div>
-        </div>
-        <div class="row no-gutters">
-            <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
-            <div class="col-lg-6 my-auto showcase-text">
-                <h2>Software</h2>
-                <p class="lead mb-0">Wij maken altijd gebruik van de nieuwste updates om er voor te zorgen dat applicaties goed beveiligd zijn en lekker soepel werken!</p>
-            </div>
-        </div>
-        <div class="row no-gutters">
-            <div class="col-lg-6 order-lg-2 text-white showcase-img"
-                 style="background-image: url('img/bg-showcase-3.jpg');"></div>
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                <h2>Samenwerking</h2>
-                <p class="lead mb-0">Wij willen de beste producten leveren, daarom kunt u bij ons altijd terecht voor een goed gesprek!</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section class="testimonials text-center bg-half-light">
-    <div class="container">
-        <h2 class="mb-5">Wie zijn wij..?</h2>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="img/tycho.jpg" alt="Tycho E.">
-                    <h5>Tycho Engberink</h5>
-                    <p class="font-weight-light mb-0">"Lorem ipsum"</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="img/menno.jpg" alt="Menno S.">
-                    <h5>Menno Spijker</h5>
-                    <p class="font-weight-light mb-0">"Ik ben een spontane en creatieve student in de sector ICT.
-                        Mijn interesses liggen merendeels in computers maar ook zeker in het buitenleven."</p>
+                    <h3>Contact</h3>
+                    <p class="lead mb-0">Wij zijn zeer snel in contact. Mede door de snelle handeling via bijvoorbeeld
+                        de smartphone kunnen wij snel reageren op een bericht of aanvraag.</p>
                 </div>
             </div>
         </div>
@@ -246,18 +209,6 @@
     }
 
     $(document).ready(function () {
-        $("#form-top-btn").click(function () {
-            var email = $("#form-top-input").val();
-            if (validateEmail(email)) {
-                console.log(email);
-            } else {
-                $('#form-top-input').tooltip("show");
-                $("#form-top-input").click(function () {
-                    $('#form-top-input').tooltip("hide");
-                })
-            }
-        });
-
         $("#form-bottom-btn").click(function () {
             var email = $("#form-bottom-input").val();
             if (validateEmail(email)) {

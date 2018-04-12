@@ -4,7 +4,7 @@
     <meta name="description"
           content="TEMS Internet Technologies biedt websites op maat voor klanten van klein tot groot.">
     <meta name="author" content="Menno Spijker">
-    <link rel="icon" href="/assets/img/code-flat.png">
+    <link rel="icon" href="/opzet1/assets/img/code-flat.png">
 
     <title><?=TITLE?></title>
 
@@ -14,7 +14,7 @@
 
     <!-- Custom styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="/assets/index.css" rel="stylesheet">
+    <link href="/opzet1/assets/index.css" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116390520-1"></script>
