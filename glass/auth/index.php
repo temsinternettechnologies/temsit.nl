@@ -1,3 +1,12 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Glass | Login</title>
+</head>
 <?php
 require_once("../../glass/core/init.php");
 
@@ -22,6 +31,7 @@ if (isset($_POST["username"])) {
     body {
         color: #999;
         font-family: sans-serif;
+        transition: background-color 3s;
     }
 
     h2 {
@@ -160,6 +170,7 @@ if (isset($_POST["username"])) {
     //show password
     $(document).ready(function () {
         setRandomColor();
+        setInterval(setRandomColor,3000);
         $("#pw").focus(function () {
             this.type = "text";
         }).blur(function () {
