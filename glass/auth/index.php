@@ -17,10 +17,10 @@ if (isset($_POST["username"])) {
     $userdata = Database::select($query);
     if (isset($userdata[0])) {
         $userdata = $userdata[0];
-        if ($_POST['remember'] == "on"){
+        if ($_POST['remember'] == "on") {
             Cookies::setCookie("GID", $userdata->id);
         }
-        $_SESSION["GID"] =  $userdata->id;
+        $_SESSION["GID"] = $userdata->id;
         header("location: /glass");
     } else {
         echo "<style>input[type=text], input[type=password]{border-bottom:solid 3px crimson !important;};</style>";
@@ -31,6 +31,7 @@ if (isset($_POST["username"])) {
     body {
         color: #999;
         font-family: sans-serif;
+        background-color: orange;
         transition: background-color 3s;
     }
 
@@ -41,6 +42,11 @@ if (isset($_POST["username"])) {
         text-align: center;
         margin-bottom: 10px;
     }
+    h1 {
+        text-align: center;
+        color: white;
+        letter-spacing: 5px;
+    }
 
     a {
         color: #999;
@@ -48,19 +54,23 @@ if (isset($_POST["username"])) {
     }
 
     .login {
-        width: 250px;
+        width: 80vw;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: -184px 0px 0px -155px;
+        top: 30vh;
+        left: 10vw;
         background: rgba(0, 0, 0, 0.5);
-        padding: 40px 50px;
         border-radius: 5px;
-        box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.07)
+        box-shadow: 0px 0px 5px rgba(200, 200, 200, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.07)
     }
 
-    input[type="text"], input[type="password"] {
-        width: 250px;
+    @media only screen and (min-width: 600px) {
+        .login {
+            width: 35vh;
+            left: calc(100vh - 35vh / 2)
+        }
+    }
+        input[type="text"], input[type="password"] {
+        width: 100%;
         margin-top: 5px;
         padding: 25px 0px;
         background: rgba(200, 200, 200, 0.2);
@@ -99,38 +109,23 @@ if (isset($_POST["username"])) {
         background: #b5cd60;
         border: 3px solid #252730;
         box-shadow: 0px 0px 0px 2px #b5cd60;
+        margin-left: 5%;
     }
 
     input[type="submit"] {
         background: #b5cd60;
         border: 0;
-        width: 250px;
+        width: 90%;
         height: 40px;
         border-radius: 3px;
         color: white;
         cursor: pointer;
         transition: background 0.3s ease-in-out;
+        margin-left: 5%;
     }
 
     input[type="submit"]:hover {
         background: #16aa56;
-    }
-
-    .forgot {
-        margin-top: 30px;
-        display: block;
-        font-size: 11px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .forgot:hover {
-        margin-top: 30px;
-        display: block;
-        font-size: 11px;
-        text-align: center;
-        font-weight: bold;
-        color: #6d7781;
     }
 
     .remember {
@@ -138,6 +133,9 @@ if (isset($_POST["username"])) {
         font-size: 12px;
         text-indent: 25px;
         line-height: 15px;
+    }
+    .remember span {
+        margin-left: 5%;
     }
 
     ::-webkit-input-placeholder {
@@ -152,13 +150,14 @@ if (isset($_POST["username"])) {
 
 </style>
 <div class='login'>
+    <h1>TEMS-IT</h1>
     <h2>Inloggen</h2>
     <form method="post" autocomplete="off">
         <input name='username' placeholder='Username' type='text' value="" autocomplete="new"/>
         <input id='pw' name='password' placeholder='Password' type='password' value="" autocomplete="new-password"/>
         <div class='remember'>
             <input checked='' id='remember' name='remember' type='checkbox'/>
-            <label for='remember'></label>Remember me
+            <label for='remember'></label><span>Remember me<span>
         </div>
         <input type='submit' value='Sign in'/>
     </form>
@@ -169,13 +168,16 @@ if (isset($_POST["username"])) {
 <script>
     //show password
     $(document).ready(function () {
+
         setRandomColor();
-        setInterval(setRandomColor,3000);
-        $("#pw").focus(function () {
+        setInterval(setRandomColor, 3000);
+
+
+       /* $("#pw").focus(function () {
             this.type = "text";
         }).blur(function () {
             this.type = "password";
-        })
+        })*/
     });
 
     //Placeholder fixed for Internet Explorer
