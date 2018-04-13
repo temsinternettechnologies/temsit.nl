@@ -34,8 +34,7 @@ class Cookies
         }
     }
 
-    public
-    static function getCookie($key)
+    public static function getCookie($key)
     {
         try {
             if (isset($_COOKIE[$key])) {
@@ -51,5 +50,9 @@ class Cookies
             }
             return false;
         }
+    }
+
+    public static function deleteCookie($key){
+        setcookie ($key, null, time() - 1);
     }
 }

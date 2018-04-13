@@ -23,7 +23,7 @@ h6 {
   border-color: #f07010;
 }
 
-.icon-size-actual:before, .icon-layers:before, .icon-speedometer:before {
+.icon-size-actual:before, .icon-layers:before, .icon-speedometer:before, .icon {
   color: #6610f2;
   transition: font-size 200ms;
 }
