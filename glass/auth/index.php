@@ -143,9 +143,9 @@ if (isset($_POST["username"])) {
 </style>
 <div class='login'>
     <h2>Inloggen</h2>
-    <form method="post">
-        <input name='username' placeholder='Username' type='text'/>
-        <input id='pw' name='password' placeholder='Password' type='password'/>
+    <form method="post" autocomplete="off">
+        <input name='username' placeholder='Username' type='text' value="" autocomplete="new"/>
+        <input id='pw' name='password' placeholder='Password' type='password' value="" autocomplete="new-password"/>
         <div class='remember'>
             <input checked='' id='remember' name='remember' type='checkbox'/>
             <label for='remember'></label>Remember me
