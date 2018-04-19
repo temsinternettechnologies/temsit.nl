@@ -8,9 +8,7 @@ require_once('../core/init.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
-    <meta name="google-site-verification" content="2ooCwpIaYCwxEQSoshDu7dWta3ep5A-RD2_x5c96EjI" />
-    
+       
     <link rel="icon" href="../opzet1/assets/img/code-flat.png?build=<?= BUILD ?>">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
