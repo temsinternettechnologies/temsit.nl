@@ -37,7 +37,7 @@ if (isset($_POST["username"])) {
         color: #999;
         font-family: sans-serif;
         background-color: orange;
-        transition: background-color 3s;
+        transition: background-color 6s;
     }
 
     h2 {
@@ -70,8 +70,8 @@ if (isset($_POST["username"])) {
 
     @media only screen and (min-width: 600px) {
         .login {
-            width: 35vh;
-            left: calc(100vh - 35vh / 2)
+            width:40vh;
+            left: 10vh;
         }
     }
         input[type="text"], input[type="password"] {
@@ -176,7 +176,7 @@ if (isset($_POST["username"])) {
     $(document).ready(function () {
 
         setRandomColor();
-        setInterval(setRandomColor, 3000);
+        setInterval(setRandomColor, 6000);
 
 
        /* $("#pw").focus(function () {

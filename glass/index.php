@@ -4,6 +4,9 @@ require_once("../glass/core/init.php");
 if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     header("location: auth");
 }
+
+//sendMail(array("mail" => "spijkermenno@gmail.com", "name" => "Menno"), "mail from php code", "Hij werkt G");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +29,13 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
             crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet">
 
+    <script>
+        function assignment_checkbox(thing){
+            console.log($(thing).attr("title"));
+        }
+    </script>
 </head>
-<body>
+<body onload="connect()" onunload="disconnect()">
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <a class="navbar-brand" href="#">Glass</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -51,36 +59,82 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     </span>
     </div>
 </nav>
+
+<?php
+$visits = Database::select("select count(*) as count from analytics where date = CURRENT_DATE()")[0];
+$subscribers = Database::select("select count(*) as count from subscribers where is_active = true")[0];
+$customers = Database::select("select count(*) as count from customer where is_active = true")[0];
+if (!$visits){
+    $visits->count = 0;
+}
+if (!$subscribers){
+    $subscribers->count = 0;
+}
+if (!$customers){
+    $customers->count = 0;
+}
+
+
+?>
 <main class="container-fluid bg-light text-dark">
     <div class="row p-5">
         <div class="offset-2 col-2 text-center border p-0 rounded" style="overflow: hidden">
             <div class="bg-danger text-light p-2" data-toggle="tooltip" data-placement="bottom"
                  title="Het aantal bezoekers sinds 00:00 <?= date("d-m-y") ?>"><h5>Views</h5></div>
-            <div class="p-3"><h3>201</h3></div>
+            <div class="p-3"><h3><?=$visits->count?></h3></div>
         </div>
         <div class="offset-1 col-2 text-center border p-0 rounded" style="overflow: hidden">
             <div class="bg-warning text-light p-2"><h5>Abonnees</h5></div>
-            <div class="p-3"><h3>11</h3></div>
+            <div class="p-3"><h3><?=$subscribers->count?></h3></div>
         </div>
         <div class="offset-1 col-2 text-center border p-0 rounded" style="overflow: hidden">
             <div class="bg-success text-light p-2"><h5>Klanten</h5></div>
-            <div class="p-3"><h3>4</h3></div>
+            <div class="p-3"><h3><?=$customers->count?></h3></div>
         </div>
     </div>
+    <?php
+    $assignments_todo = Database::select("select a.id, a.assignment, c.name, t.name as type from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = false");
+    $assignments_finished = Database::select("select a.assignment, c.name, t.name as type from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = true");
+    ?>
+
     <div class="row">
         <div class="offset-2 col-8 text-center">
             <h2>Vandaag</h2>
             <div class="fake-table p-2">
                 <div class="row">
-                    <div class="col col-4 fake-table-head">Klant</div>
-                    <div class="col col-4 fake-table-head">Afspraak</div>
-                    <div class="col col-4 fake-table-head">Opdracht</div>
+                    <div class="col col-3 fake-table-head">Klant</div>
+                    <div class="col col-3 fake-table-head">Afspraak</div>
+                    <div class="col col-5 fake-table-head">Opdracht</div>
+                    <div class="col col-1 fake-table-head"></div>
                 </div>
-                <div class="row fake-table-row">
-                    <div class="col col-4">Temsit</div>
-                    <div class="col col-4">Bel afspraak</div>
-                    <div class="col col-4">Bellen met dhr. Engberink over layout.</div>
-                </div>
+                <?php
+                foreach ($assignments_todo as $assignment) {
+                    ?>
+                    <div class="row fake-table-row">
+                        <div class="col col-3"><?=$assignment->name?></div>
+                        <div class="col col-3"><?=$assignment->type?></div>
+                        <div class="col col-5"><?=$assignment->assignment?></div>
+                        <div class="col col-1"><input onchange="assignment_checkbox(this)" title="<?=$assignment->id?>" type="checkbox"></div>
+                    </div>
+                    <?php
+                }
+                if($assignments_finished) {
+                    ?>
+                    <div class="row fake-table-row">
+                        <div class="col col-12"></div>
+                    </div>
+                    <?php
+                    foreach ($assignments_finished as $assignment) {
+                        ?>
+                        <div class="row fake-table-row">
+                            <div class="col col-4"><?= $assignment->name ?></div>
+                            <div class="col col-4"><?= $assignment->type ?></div>
+                            <div class="col col-4"><?= $assignment->assignment ?></div>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -89,10 +143,6 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <p>Copyright TemsIT, &copy; 2017 - <?= date("Y") ?></p>
 </footer>
 
-<!--<script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace('editor1');
-</script>-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -100,6 +150,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script src="../tools/analytics.js"></script>
 <script>
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
@@ -112,7 +163,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
                 callback: location.reload()
             });
         });
-    })
+    });
 </script>
 </body>
 </html>

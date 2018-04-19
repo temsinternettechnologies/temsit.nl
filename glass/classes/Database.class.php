@@ -127,7 +127,6 @@ class Database
         $result = self::run($query);
 
         $new_id = mysqli_insert_id(self::$connection);
-
         return $new_id;
     }
 
@@ -151,7 +150,8 @@ class Database
             }
         }
         if (count($error)) {
-            print_r($error);
+            var_dump($error);
+            print_r($query);
             exit;
         }
         return true;

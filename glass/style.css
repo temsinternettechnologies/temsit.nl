@@ -15,6 +15,11 @@ footer {
     border-top: solid 1px #d0d0d0;
     border-bottom: solid 1px #d0d0d0;
 }
+.fake-table .col:last-child {
+    border-top: solid 1px #d0d0d0;
+    border-bottom: solid 1px #d0d0d0;
+    border-right: solid 1px #d0d0d0;
+}
 
 .fake-table .fake-table-head {
     background: #e0e0e0;
