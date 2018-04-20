@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Menno Spijker, Tycho Engberink">
 
-    <title>Wij | TEMS Internet Technologies</title>
+    <title>Contact | TEMS Internet Technologies</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -44,13 +44,7 @@
     }
     ?>
     <style>
-        header.masthead {
-            padding: 0;
-        }
 
-        .testimonials .testimonial-item img {
-            box-shadow: 0 5px 5px 0 rgba(1,1,1,0.5);
-        }
     </style>
 </head>
 
@@ -69,30 +63,9 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto">
-                <section class="testimonials text-center">
-                    <div class="container">
-                        <h2 class="mb-5">TemsIT, wie zijn dat eigenlijk?</h2>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                                    <img class="img-fluid rounded-circle mb-3" src="../img/tycho.jpg" alt="Tycho E.">
-                                    <h5>Tycho Engberink</h5>
-                                    <p class="font-weight-light mb-0">"Ik ben Tycho."</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                                    <img class="img-fluid rounded-circle mb-3" src="../img/menno.jpg" alt="Menno S.">
-                                    <h5>Menno Spijker</h5>
-                                    <p class="font-weight-light mb-0">"Ik Menno, een spontane en creatieve student in de
-                                        sector ICT.
-                                        Mijn interesses liggen merendeels in computers maar ook zeker in het
-                                        buitenleven."</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <div class="container">
+                    <h2 class="mb-5">Dus, jij zoekt contact?</h2>
+                </div>
             </div>
         </div>
     </div>
@@ -102,34 +75,24 @@
 <section class="features-icons bg-light text-center">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon icon-map m-auto"></i>
+                        <a href="mailto:info@temsit.nl" style="margin: 0 auto"><i class="icon icon-envelope-open m-auto"></i></a>
                     </div>
-                    <h3>Apeldoorn</h3>
-                    <p class="lead mb-0">Tems IT is bedacht door twee studenten uit Apeldoorn. Zij wilen graag hun
-                        verkregen kennis gebruiken om mensen te helpen.</p>
+                    <h3>Mail</h3>
+                    <p class="lead mb-0">Mail ons, Druk op boventstaande icon!</p>
+                    <p class="lead">Werkt dit niet? U kunt ons bereiken via <i style="color: darkblue"></i></p>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                    <div class="features-icons-icon d-flex">
-                        <i class="icon icon-book-open m-auto"></i>
-                    </div>
-                    <h3>Studenten</h3>
-                    <p class="lead mb-0">Wij zijn twee studenten, dit betekend dat wij nog veel aan het leren zijn en zo
-                        steeds een beetje extra kunnen leveren aan een top product.</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
+
+            <div class="col-lg-6">
                 <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
                         <i class="icon icon-call-in m-auto"></i>
                     </div>
-                    <h3>Contact</h3>
-                    <p class="lead mb-0">Wij zijn zeer snel in contact. Mede door de snelle handeling via bijvoorbeeld
-                        de smartphone kunnen wij snel reageren op een bericht of aanvraag.</p>
+                    <h3>Bellen</h3>
+                    <p class="lead mb-0">Omdat temsit voortkomt uit twee studenten is bellen zonder afspraak vaak niet mogelijk. Probeer ons te mailen!</p>
                 </div>
             </div>
         </div>

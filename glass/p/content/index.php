@@ -17,7 +17,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Opdrachten | Glass | TemsIT</title>
+    <title>Inzicht | Glass | TemsIT</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -30,10 +30,12 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <link href="../../style.css" rel="stylesheet">
 
     <script>
-
+        function assignment_checkbox(thing){
+            console.log($(thing).attr("title"));
+        }
     </script>
 </head>
-<body>
+<body onload="connect()" onunload="disconnect()">
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <a class="navbar-brand" href="/glass/">Glass</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -46,13 +48,13 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
                 <a class="nav-link" href="/glass/p/klanten">Klanten</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/glass/p/opdrachten">Opdrachten</a>
+                <a class="nav-link" href="/glass/p/opdrachten">Opdrachten</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/glass/p/inzicht">Inzicht</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/glass/p/content">Content</a>
+                <a class="nav-link active" href="/glass/p/content">Content</a>
             </li>
         </ul>
         <span class="navbar-text">
@@ -61,8 +63,21 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     </div>
 </nav>
 
+<?php
+$tycho->content = "Lorem Ipsum";
+$menno->content = "Ik ben een spontane en creatieve student in de sector ICT. Mijn interesses liggen merendeels in computers maar ook zeker in het buitenleven.";
+?>
 <main class="container-fluid bg-light text-dark">
-    <div id="assignments-container"></div>
+    <div class="row p-5">
+        <div class="col-lg-2 offset-3 text-center p-0 text-light" style="border: solid 1px #ccc; border-radius: 3px 3px 0 0; overflow: hidden">
+            <div class="header p-2" style="background: #6f42c1;">Menno</div>
+            <div class="content p-2 text-dark"><?=$menno->content?></div>
+        </div>
+        <div class="col-lg-2 offset-2 text-center p-0 text-dark" style="border: solid 1px #ccc; border-radius: 3px 3px 0 0; overflow: hidden">
+            <div class="header p-2" style="background: #b5cd60;">Tycho</div>
+            <div class="content p-2"><?=$tycho->content?></div>
+        </div>
+    </div>
 </main>
 <footer class="container-fluid text-center">
     <p>Copyright TemsIT, &copy; 2017 - <?= date("Y") ?></p>
@@ -77,22 +92,8 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
         crossorigin="anonymous"></script>
 <script src="../tools/analytics.js"></script>
 <script>
-    function getAssignments(){
-        $.get('getAssignments.php',function (data) {
-            $("#assignments-container").html(data);
-        });
-    }
-
-    function assignment_checkbox(thing){
-        $.get("handler.php?a=check&id="+thing, function(data, status){
-            getAssignments();
-        });
-    }
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
-
-        getAssignments();
-
         $(".uitloggen").click(function () {
             $.ajax({
                 type: 'POST',

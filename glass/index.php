@@ -53,6 +53,9 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
             <li class="nav-item">
                 <a class="nav-link" href="/glass/p/inzicht">Inzicht</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/glass/p/content">Content</a>
+            </li>
         </ul>
         <span class="navbar-text">
       TemsIT / <span class="uitloggen">uitloggen</span>
