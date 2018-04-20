@@ -30,12 +30,10 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <link href="../../style.css" rel="stylesheet">
 
     <script>
-        function assignment_checkbox(thing){
-            console.log($(thing).attr("title"));
-        }
+
     </script>
 </head>
-<body onload="connect()" onunload="disconnect()">
+<body>
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <a class="navbar-brand" href="/glass/">Glass</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -61,68 +59,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
 </nav>
 
 <main class="container-fluid bg-light text-dark">
-    <?php
-    $assignments_todo = Database::select("select a.id as id, a.assignment as assignment, c.name as name, t.name as type, a.end_date as end_date from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = false");
-    $assignments_finished = Database::select("select a.assignment, c.name, t.name as type from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = true");
-
-    function dateDifference($date_1 )
-    {
-        $datetime1 = date_create($date_1);
-        $datetime2 = date_create();
-
-        $interval = date_diff($datetime1, $datetime2);
-
-        return $interval->format("%a");
-
-    }
-
-    ?>
-
-    <div class="row">
-        <div class="offset-lg-2 offset-md-1 offset-xs-0 col-lg-8 col-md-10 col-xs-12 text-center">
-            <h2>Opdrachten</h2>
-            <div class="fake-table p-2">
-                <div class="row">
-                    <div class="col col-lg-2 col-md-12 col-12 fake-table-head">Klant</div>
-                    <div class="col col-lg-2 col-md-6 col-6 fake-table-head">Afspraak</div>
-                    <div class="col col-lg-2 col-md-6 col-6 fake-table-head">Dagen resterend</div>
-                    <div class="col col-lg-4  col-md-10 col-10  fake-table-head">Opdracht</div>
-                    <div class="col col-lg-2  col-md-2 col-2 fake-table-head"><i class="fas fa-check-square"></i>
-
-                    </div>
-                </div>
-                <?php
-                foreach ($assignments_todo as $assignment) {
-                    ?>
-                    <div class="row fake-table-row">
-                        <div class="col col-lg-2 col-md-12 col-12"><?=$assignment->name?></div>
-                        <div class="col col-lg-2 col-md-6 col-6"><?=$assignment->type?></div>
-                        <div class="col col-lg-2 col-md-6 col-6"><?=dateDifference($assignment->end_date)?></div>
-                        <div class="col col-lg-4 col-md-10 col-10"><?=$assignment->assignment?></div>
-                        <div class="col col-lg-2 col-md-2 col-2"><input onchange="assignment_checkbox(this)" title="<?=$assignment->id?>" type="checkbox"></div>
-                    </div>
-                    <?php
-                }
-                if($assignments_finished) {
-                    ?>
-                    <div class="row fake-table-row">
-                        <div class="col col-12"></div>
-                    </div>
-                    <?php
-                    foreach ($assignments_finished as $assignment) {
-                        ?>
-                        <div class="row fake-table-row">
-                            <div class="col col-4"><?= $assignment->name ?></div>
-                            <div class="col col-4"><?= $assignment->type ?></div>
-                            <div class="col col-4"><?= $assignment->assignment ?></div>
-                        </div>
-                        <?php
-                    }
-                }
-                ?>
-            </div>
-        </div>
-    </div>
+    <div id="assignments-container"></div>
 </main>
 <footer class="container-fluid text-center">
     <p>Copyright TemsIT, &copy; 2017 - <?= date("Y") ?></p>
@@ -137,8 +74,22 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
         crossorigin="anonymous"></script>
 <script src="../tools/analytics.js"></script>
 <script>
+    function getAssignments(){
+        $.get('getAssignments.php',function (data) {
+            $("#assignments-container").html(data);
+        });
+    }
+
+    function assignment_checkbox(thing){
+        $.get("handler.php?a=check&id="+thing, function(data, status){
+            getAssignments();
+        });
+    }
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
+
+        getAssignments();
+
         $(".uitloggen").click(function () {
             $.ajax({
                 type: 'POST',
