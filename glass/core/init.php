@@ -1,19 +1,14 @@
 <?php
 error_reporting(0);
+define("ROOT", __DIR__ . "\../");
+
 function require_class($classname)
 {
-    if($_SERVER["REQUEST_URI"] == "/glass/") {
-        include_once("../glass/classes/" . $classname . ".class.php");
-    }else {
-        include_once("../../glass/classes/" . $classname . ".class.php");
-    }
+    include_once(ROOT . "classes/" . $classname . ".class.php");
 }
 
-if($_SERVER["REQUEST_URI"] == "/glass/") {
-    require_once "../vendor/autoload.php";
-}else {
-    require_once "../../vendor/autoload.php";
-}
+require_once ROOT."../vendor/autoload.php";
+
 
 spl_autoload_register('require_class');
 

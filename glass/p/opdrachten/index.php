@@ -1,5 +1,5 @@
 <?php
-require_once("../glass/core/init.php");
+require_once("../../../glass/core/init.php");
 
 if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     header("location: auth");
@@ -17,7 +17,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Glass | TemsIT</title>
+    <title>Opdrachten | Glass | TemsIT</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -27,7 +27,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
             integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
             crossorigin="anonymous"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
 
     <script>
         function assignment_checkbox(thing){
@@ -48,7 +48,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
                 <a class="nav-link" href="/glass/p/klanten">Klanten</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/glass/p/opdrachten">Opdrachten</a>
+                <a class="nav-link active" href="/glass/p/opdrachten">Opdrachten</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/glass/p/inzicht">Inzicht</a>
@@ -60,61 +60,46 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     </div>
 </nav>
 
-<?php
-$visits = Database::select("select count(*) as count from analytics where date = CURRENT_DATE()")[0];
-$subscribers = Database::select("select count(*) as count from subscribers where is_active = true")[0];
-$customers = Database::select("select count(*) as count from customer where is_active = true")[0];
-if (!$visits){
-    $visits->count = 0;
-}
-if (!$subscribers){
-    $subscribers->count = 0;
-}
-if (!$customers){
-    $customers->count = 0;
-}
-
-
-?>
 <main class="container-fluid bg-light text-dark">
-    <div class="row p-5">
-        <div class="offset-2 col-2 text-center border p-0 rounded" style="overflow: hidden">
-            <div class="bg-danger text-light p-2" data-toggle="tooltip" data-placement="bottom"
-                 title="Het aantal bezoekers sinds 00:00 <?= date("d-m-y") ?>"><h5>Views</h5></div>
-            <div class="p-3"><h3><?=$visits->count?></h3></div>
-        </div>
-        <div class="offset-1 col-2 text-center border p-0 rounded" style="overflow: hidden">
-            <div class="bg-warning text-light p-2"><h5>Abonnees</h5></div>
-            <div class="p-3"><h3><?=$subscribers->count?></h3></div>
-        </div>
-        <div class="offset-1 col-2 text-center border p-0 rounded" style="overflow: hidden">
-            <div class="bg-success text-light p-2"><h5>Klanten</h5></div>
-            <div class="p-3"><h3><?=$customers->count?></h3></div>
-        </div>
-    </div>
     <?php
-    $assignments_todo = Database::select("select a.id, a.assignment, c.name, t.name as type from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = false");
+    $assignments_todo = Database::select("select a.id as id, a.assignment as assignment, c.name as name, t.name as type, a.end_date as end_date from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = false");
     $assignments_finished = Database::select("select a.assignment, c.name, t.name as type from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where  start_date = NOW() or end_date >= NOW() and is_valid = true and done = true");
+
+    function dateDifference($date_1 )
+    {
+        $datetime1 = date_create($date_1);
+        $datetime2 = date_create();
+
+        $interval = date_diff($datetime1, $datetime2);
+
+        return $interval->format("%a");
+
+    }
+
     ?>
 
     <div class="row">
-        <div class="offset-2 col-8 text-center">
-            <h2>Vandaag</h2>
+        <div class="offset-lg-2 offset-md-1 offset-xs-0 col-lg-8 col-md-10 col-xs-12 text-center">
+            <h2>Opdrachten</h2>
             <div class="fake-table p-2">
                 <div class="row">
-                    <div class="col col-3 fake-table-head">Klant</div>
-                    <div class="col col-3 fake-table-head">Afspraak</div>
-                    <div class="col col-5 fake-table-head">Opdracht</div>
-                    <div class="col col-1 fake-table-head"></div>
+                    <div class="col col-lg-2 col-md-12 col-12 fake-table-head">Klant</div>
+                    <div class="col col-lg-2 col-md-6 col-6 fake-table-head">Afspraak</div>
+                    <div class="col col-lg-2 col-md-6 col-6 fake-table-head">Dagen resterend</div>
+                    <div class="col col-lg-4  col-md-10 col-10  fake-table-head">Opdracht</div>
+                    <div class="col col-lg-2  col-md-2 col-2 fake-table-head"><i class="fas fa-check-square"></i>
+
+                    </div>
                 </div>
                 <?php
                 foreach ($assignments_todo as $assignment) {
                     ?>
                     <div class="row fake-table-row">
-                        <div class="col col-3"><?=$assignment->name?></div>
-                        <div class="col col-3"><?=$assignment->type?></div>
-                        <div class="col col-5"><?=$assignment->assignment?></div>
-                        <div class="col col-1"><input onchange="assignment_checkbox(this)" title="<?=$assignment->id?>" type="checkbox"></div>
+                        <div class="col col-lg-2 col-md-12 col-12"><?=$assignment->name?></div>
+                        <div class="col col-lg-2 col-md-6 col-6"><?=$assignment->type?></div>
+                        <div class="col col-lg-2 col-md-6 col-6"><?=dateDifference($assignment->end_date)?></div>
+                        <div class="col col-lg-4 col-md-10 col-10"><?=$assignment->assignment?></div>
+                        <div class="col col-lg-2 col-md-2 col-2"><input onchange="assignment_checkbox(this)" title="<?=$assignment->id?>" type="checkbox"></div>
                     </div>
                     <?php
                 }
