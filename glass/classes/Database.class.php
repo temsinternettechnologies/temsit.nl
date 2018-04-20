@@ -127,7 +127,6 @@ class Database
         $result = self::run($query);
 
         $new_id = mysqli_insert_id(self::$connection);
-
         return $new_id;
     }
 
@@ -151,7 +150,8 @@ class Database
             }
         }
         if (count($error)) {
-            print_r($error);
+            var_dump($error);
+            print_r($query);
             exit;
         }
         return true;
@@ -165,12 +165,12 @@ class Database
      * @param $id -> Het id van het betreffende record
      * @return bool|mysqli_result -> gelukt = true, mislukt = false
      */
-    public static function delete($table, $id, $whereCol = null)
+    public static function delete($table, $where, $whereCol = null)
     {
         if (isset($whereCol)) {
-            $query = sprintf("delete from %s where `%s` = '%s' limit 1 ", $table, $whereCol, $id);
+            $query = sprintf("delete from %s where `%s` = '%s' limit 1 ", $table, $whereCol, $where);
         } else {
-            $query = sprintf("delete from %s where id = '%s' limit 1 ", $table, $id);
+            $query = sprintf("delete from %s where id = '%s' limit 1 ", $table, $where);
         }
         return self::run($query);
     }
