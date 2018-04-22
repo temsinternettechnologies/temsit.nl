@@ -16,7 +16,7 @@ define("BUILD", dechex(2));
 
 define("HOST_ONLINE", "localhost");
 define("USERNAME", "temsit");
-define("PASSWORD", "QuintIan055");
+define("PASSWORD", "*");
 define("DATABASE", "temsit");
 
 new Database(HOST_ONLINE, USERNAME, PASSWORD, DATABASE);
@@ -42,7 +42,7 @@ function sendMail($reciever, $subject, $message, $sender = null)
         $mail->Host = gethostbyname('smtp-relay.gmail.com');
         $mail->SMTPAuth = true;                                 // Enable SMTP authentication
         $mail->Username = 'info@temsit.nl';                     // SMTP username
-        $mail->Password = 'QuintIan055';                        // SMTP password
+        $mail->Password = '*';                        // SMTP password
         $mail->SMTPSecure = 'tls';
         $mail->Port = '587';                                      // TCP port to connect to
 
