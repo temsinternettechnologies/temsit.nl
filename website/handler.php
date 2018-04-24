@@ -1,11 +1,12 @@
 <?php
-require_once("../glass/core/init.php");
+require_once("core/init.php");
 
 switch ($_GET['a']){
     case "save":
         $check = Database::select(sprintf("select * from subscribers where email = '%s'", Database::escape($_GET["email"])));
         if($check) {
         echo "exists";
+        return;
         }else{
             $ip = sha1(@$_SERVER['HTTP_CLIENT_IP'] ?: @$_SERVER['HTTP_X_FORWARDED_FOR'] ?: @$_SERVER['REMOTE_ADDR']);
             $id = Database::insert("subscribers", array("email" => Database::escape($_GET["email"]), "hash" => sha1($ip)));

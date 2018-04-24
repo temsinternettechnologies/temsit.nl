@@ -1,12 +1,5 @@
 <?php
-require_once("../../../glass/core/init.php");
-
-if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
-    header("location: auth");
-}
-
-//sendMail(array("mail" => "spijkermenno@gmail.com", "name" => "Menno"), "mail from php code", "Hij werkt G");
-
+require_once("../../../core/init.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +10,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Opdrachten | Glass | TemsIT</title>
+    <title>Klanten | Glass | TemsIT</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -30,10 +23,12 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <link href="../../style.css" rel="stylesheet">
 
     <script>
-
+        function assignment_checkbox(thing){
+            console.log($(thing).attr("title"));
+        }
     </script>
 </head>
-<body>
+<body onload="connect()" onunload="disconnect()">
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <a class="navbar-brand" href="/glass/">Glass</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -43,10 +38,10 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/glass/p/klanten">Klanten</a>
+                <a class="nav-link active" href="/glass/p/klanten">Klanten</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/glass/p/opdrachten">Opdrachten</a>
+                <a class="nav-link" href="/glass/p/opdrachten">Opdrachten</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/glass/p/inzicht">Inzicht</a>
@@ -61,8 +56,34 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
     </div>
 </nav>
 
+<?php
+$visits = Database::select("select count(*) as count from analytics where date = CURRENT_DATE()")[0];
+$subscribers = Database::select("select count(*) as count from subscribers where is_active = true")[0];
+$customers = Database::select("select count(*) as count from customer where is_active = true")[0];
+if (!$visits){
+    $visits->count = 0;
+}
+if (!$subscribers){
+    $subscribers->count = 0;
+}
+if (!$customers){
+    $customers->count = 0;
+}
+
+
+?>
 <main class="container-fluid bg-light text-dark">
-    <div id="assignments-container"></div>
+    <div class="row p-5">
+        <div class="offset-2 col-3 text-center border p-0 rounded" style="overflow: hidden">
+            <div class="bg-danger text-light p-2" data-toggle="tooltip" data-placement="bottom"
+                 title="Het aantal bezoekers sinds 00:00 <?= date("d-m-y") ?>"><h5>Bezoekers</h5></div>
+            <div class="p-3"><h3><?=$visits->count?></h3></div>
+        </div>
+        <div class="offset-2 col-3 text-center border p-0 rounded" style="overflow: hidden">
+            <div class="bg-warning text-light p-2"><h5>Terugkomende bezoekers</h5></div>
+            <div class="p-3"><h3><?=$subscribers->count?></h3></div>
+        </div>
+    </div>
 </main>
 <footer class="container-fluid text-center">
     <p>Copyright TemsIT, &copy; 2017 - <?= date("Y") ?></p>
@@ -77,22 +98,8 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
         crossorigin="anonymous"></script>
 <script src="../tools/analytics.js"></script>
 <script>
-    function getAssignments(){
-        $.get('getAssignments.php',function (data) {
-            $("#assignments-container").html(data);
-        });
-    }
-
-    function assignment_checkbox(thing){
-        $.get("handler.php?a=check&id="+thing, function(data, status){
-            getAssignments();
-        });
-    }
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
-
-        getAssignments();
-
         $(".uitloggen").click(function () {
             $.ajax({
                 type: 'POST',

@@ -1,10 +1,10 @@
 <?php
-error_reporting(0);
+/*error_reporting(0);*/
 define("ROOT", __DIR__ . "\../");
 
 function require_class($classname)
 {
-    include_once(ROOT . "classes/" . $classname . ".class.php");
+    include_once(ROOT."../classes/" . $classname . ".class.php");
 }
 
 require_once ROOT . "../vendor/autoload.php";
@@ -30,6 +30,22 @@ session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+function auth()
+{
+    if ($_SERVER['REQUEST_URI'] != 'website/glass/auth/') {
+        if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
+            header("location: auth/");
+        }
+    } else {
+        if (isset($_SESSION["GID"]) || is_numeric(Cookies::getCookie("GID"))) {
+            if (!isset($_SESSION["GID"]) && is_numeric(Cookies::getCookie("GID"))) {
+                $_SESSION["GID"] = Cookies::getCookie("GID");
+            }
+            header("location: /glass");
+        }
+    }
+}
 
 function sendMail($reciever, $subject, $message, $sender = null)
 {
@@ -78,4 +94,5 @@ function sendMail($reciever, $subject, $message, $sender = null)
         return false;
     }
 }
+
 

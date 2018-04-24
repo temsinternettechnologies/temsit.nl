@@ -1,12 +1,5 @@
 <?php
-require_once("../../../glass/core/init.php");
-
-if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
-    header("location: auth");
-}
-
-//sendMail(array("mail" => "spijkermenno@gmail.com", "name" => "Menno"), "mail from php code", "Hij werkt G");
-
+require_once("../../../core/init.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +57,7 @@ if (!isset($_SESSION["GID"]) || !is_numeric(Cookies::getCookie("GID"))) {
 </nav>
 
 <?php
-$tycho->content = "Lorem Ipsum";
+$tycho->content = "Ik ben veel bezig met computers, samen met Menno heb ik dan ook een opleiding in deze richting gevolgd.";
 $menno->content = "Ik ben een spontane en creatieve student in de sector ICT. Mijn interesses liggen merendeels in computers maar ook zeker in het buitenleven.";
 ?>
 <main class="container-fluid bg-light text-dark">

@@ -52,7 +52,7 @@
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
         <a class="navbar-brand" href="#">TEMS - IT</a>
-        <a class="btn btn-info" href="/glass/">Inloggen</a>
+        <a class="btn btn-info" href="glass/">Inloggen</a>
     </div>
 </nav>
 
@@ -149,7 +149,10 @@
         </div>
     </div>
 </section>
-
+<?php
+$tycho['content'] = "Ik ben veel bezig met computers, samen met Menno heb ik dan ook een opleiding in deze richting gevolgd.";
+$menno['content'] = "Ik ben een spontane en creatieve student in de sector ICT. Mijn interesses liggen merendeels in computers maar ook zeker in het buitenleven.";
+?>
 <!-- Testimonials -->
 <section class="testimonials text-center bg-half-light">
     <div class="container">
@@ -159,15 +162,14 @@
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <img class="img-fluid rounded-circle mb-3" src="img/tycho.jpg" alt="Tycho E.">
                     <h5>Tycho Engberink</h5>
-                    <p class="font-weight-light mb-0">"Lorem ipsum"</p>
+                    <p class="font-weight-light mb-0">"<?=$tycho['content']?>"</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <img class="img-fluid rounded-circle mb-3" src="img/menno.jpg" alt="Menno S.">
                     <h5>Menno Spijker</h5>
-                    <p class="font-weight-light mb-0">"Ik ben een spontane en creatieve student in de sector ICT.
-                        Mijn interesses liggen merendeels in computers maar ook zeker in het buitenleven."</p>
+                    <p class="font-weight-light mb-0">"<?=$menno['content']?>"</p>
                 </div>
             </div>
         </div>
@@ -264,6 +266,7 @@
 
     function saveEmail(email){
         $.get("handler.php?a=save&email="+email, function(data, status){
+            console.log(data);
             if(data == 'exists'){
                 $('#form-top-input').attr("title", "Dit emailadres bestaat al. Probeer een ander emailadres.");
                 $('#form-top-input').tooltip("show");

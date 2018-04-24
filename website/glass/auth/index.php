@@ -8,18 +8,17 @@
     <title>Glass | Login</title>
 </head>
 <?php
-require_once("../../glass/core/init.php");
+require_once("../../core/init.php");
 
 if (isset($_POST["username"])) {
     $username = Database::escape($_POST['username']);
     $password = Database::escape($_POST['password']);
-    if ($username == "menno" || $username == "menno" && $password == "apeldoorn"){
-        $userdata[0]->id = 0;
-    }else {
-        $password = sha1($password);
-        $query = sprintf("SELECT * FROM users WHERE username = '%s' and password = '%s'", $username, $password);
-        $userdata = Database::select($query);
-    }
+
+    $password = sha1($password);
+
+    $query = sprintf("SELECT * FROM users WHERE username = '%s' and password = '%s'", $username, $password);
+    $userdata = Database::select($query);
+
     if (isset($userdata[0])) {
         $userdata = $userdata[0];
         if ($_POST['remember'] == "on") {
@@ -29,6 +28,12 @@ if (isset($_POST["username"])) {
         header("location: /glass");
     } else {
         echo "<style>input[type=text], input[type=password]{border-bottom:solid 3px crimson !important;};</style>";
+        $userdata = Database::select(sprintf("select * from users where username = '%s'", $username));
+        if (isset($userdata[0])) {
+            $authError = "Dit wachtwoord komt niet overeen met het wachtwoord van deze gebruikersnaam.";
+        }else{
+            $authError = "Deze gebruikernaam is niet bij ons bekend.";
+        }
     }
 }
 ?>
@@ -47,6 +52,7 @@ if (isset($_POST["username"])) {
         text-align: center;
         margin-bottom: 10px;
     }
+
     h1 {
         text-align: center;
         color: white;
@@ -59,22 +65,56 @@ if (isset($_POST["username"])) {
     }
 
     .login {
-        width: 80vw;
+        width: 90vw;
+        height:auto;
+        top: 5vh;
+        left: 5vw;
         position: absolute;
-        top: 30vh;
-        left: 10vw;
         background: rgba(0, 0, 0, 0.5);
         border-radius: 5px;
-        box-shadow: 0px 0px 5px rgba(200, 200, 200, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.07)
+        box-shadow: 0px 0px 5px rgba(200, 200, 200, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.07);
+        padding-bottom: 10px;
+    }
+
+    @media only screen and (min-width: 400px) {
+        .login {
+            width: 80vw;
+            top: 7.5vh;
+            left: 10vw;
+        }
     }
 
     @media only screen and (min-width: 600px) {
         .login {
-            width:40vh;
-            left: 10vh;
+            width: 50vw;
+            top: 5vh;
+            left: 5vw;
         }
     }
-        input[type="text"], input[type="password"] {
+    @media only screen and (min-width: 750px) {
+        .login {
+            width: 40vw;
+            top: 10vh;
+            left: 10vw;
+        }
+    }
+    @media only screen and (min-width: 1000px) {
+        .login {
+            width: 30vw;
+           top: 10vh;
+            left: 10vw;
+        }
+    }
+    @media only screen and (min-width: 1300px) {
+        .login {
+            width: 20vw;
+            top: unset;
+            bottom: 20vh;
+            left: 10vw;
+        }
+    }
+
+    input[type="text"], input[type="password"] {
         width: 100%;
         margin-top: 5px;
         padding: 25px 0px;
@@ -140,6 +180,7 @@ if (isset($_POST["username"])) {
         text-indent: 25px;
         line-height: 15px;
     }
+
     .remember span {
         margin-left: 5%;
     }
@@ -158,6 +199,11 @@ if (isset($_POST["username"])) {
 <div class='login'>
     <h1>TEMS-IT</h1>
     <h2>Inloggen</h2>
+    <?php
+    if(isset($authError)) {
+        echo "<p style='text-align: center; color: #f0f0f0; background-color: rgba(200,200,200,0.5); padding: 25px 0;'>" . $authError . "</p>";
+    }
+    ?>
     <form method="post" autocomplete="off">
         <input name='username' placeholder='Username' type='text' value="" autocomplete="new"/>
         <input id='pw' name='password' placeholder='Password' type='password' value="" autocomplete="new-password"/>
@@ -179,11 +225,11 @@ if (isset($_POST["username"])) {
         setInterval(setRandomColor, 6000);
 
 
-       /* $("#pw").focus(function () {
-            this.type = "text";
-        }).blur(function () {
-            this.type = "password";
-        })*/
+        /* $("#pw").focus(function () {
+             this.type = "text";
+         }).blur(function () {
+             this.type = "password";
+         })*/
     });
 
     //Placeholder fixed for Internet Explorer

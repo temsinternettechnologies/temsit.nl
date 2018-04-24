@@ -1,5 +1,5 @@
 <?php
-require_once "../../core/init.php";
+require_once("../../../core/init.php");
 
 $assignments_todo = Database::select("select a.id as id, a.assignment as assignment, c.name as name, t.name as type, a.end_date as end_date from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id where end_date >= NOW() and is_valid = true and done = false order by end_date");
 $assignments_finished = Database::select("select a.assignment, c.name, t.name as type, a.end_date as end_date from assignments as a inner join customer as c on a.customer_id = c.id inner join `type` as t on a.type_id = t.id and is_valid = true and done = true order by end_date");

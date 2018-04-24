@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 13 apr 2018 om 12:49
+-- Gegenereerd op: 24 apr 2018 om 09:50
 -- Serverversie: 5.7.19
--- PHP-versie: 5.6.31
+-- PHP-versie: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `temsit`
 --
+CREATE DATABASE IF NOT EXISTS `temsit` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `temsit`;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `analytics`
+--
+
+DROP TABLE IF EXISTS `analytics`;
+CREATE TABLE IF NOT EXISTS `analytics` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `connection` tinyint(1) NOT NULL,
+  `TID` varchar(40) NOT NULL COMMENT 'SHA1(IP)',
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -34,15 +51,12 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   `customer_id` int(24) NOT NULL,
   `type_id` int(24) NOT NULL,
   `assignment` varchar(512) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `done` tinyint(1) NOT NULL DEFAULT '0',
+  `is_valid` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `assignments`
---
-
-INSERT INTO `assignments` (`id`, `customer_id`, `type_id`, `assignment`) VALUES
-(1, 1, 1, 'Test assignment');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -57,15 +71,41 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `phonenumber` varchar(10) NOT NULL,
   `email` varchar(512) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Gegevens worden geëxporteerd voor tabel `customer`
+-- Tabelstructuur voor tabel `error`
 --
 
-INSERT INTO `customer` (`id`, `name`, `phonenumber`, `email`, `date`) VALUES
-(1, 'TEMSIT', '0640727881', 'spijkermenno@gmail.com', '2018-04-13 11:38:27');
+DROP TABLE IF EXISTS `error`;
+CREATE TABLE IF NOT EXISTS `error` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `type` varchar(24) NOT NULL,
+  `message` varchar(256) NOT NULL,
+  `solved` tinyint(1) NOT NULL DEFAULT '0',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `subscribers`
+--
+
+DROP TABLE IF EXISTS `subscribers`;
+CREATE TABLE IF NOT EXISTS `subscribers` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `email` varchar(256) NOT NULL,
+  `hash` varchar(256) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT '0',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -79,14 +119,7 @@ CREATE TABLE IF NOT EXISTS `type` (
   `name` varchar(512) NOT NULL,
   `description` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `type`
---
-
-INSERT INTO `type` (`id`, `name`, `description`) VALUES
-(1, 'Bel afspraak', '');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -101,14 +134,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(512) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `date`) VALUES
-(1, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '2018-04-13 08:34:05');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
