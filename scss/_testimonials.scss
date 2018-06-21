@@ -1,0 +1,48 @@
+.testimonials {
+  position: relative;
+  background-color: $gray-800;
+  background: url('../img/testimonials-background-2280x1395.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include background-cover;
+  .overlay {
+    position: absolute;
+    background-color: $gray-900;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+  .testimonial-item {
+    max-width: 18rem;
+    img {
+      max-width: 12rem;
+      box-shadow: 0px 5px 5px 0px $gray-500;
+    }
+  }
+}
+
+.testimonials-no-image {
+  position: relative;
+  background-color: #ededed;
+
+  @include background-cover;
+  .overlay {
+    position: absolute;
+    background-color: #ededed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+  .testimonial-item {
+    max-width: 18rem;
+    img {
+      max-width: 12rem;
+      box-shadow: 0px 5px 5px 0px $gray-500;
+    }
+  }
+}

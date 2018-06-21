@@ -1,0 +1,42 @@
+{
+  "title": "temsit.nl",
+  "name": "temsit.nl",
+  "version": "4.0.0",
+  "description": "the temsit.nl website built with Bootstrap",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "theme",
+    "template"
+  ],
+  "homepage": "https://temsit.nl",
+  "author": "temsit.nl",
+  "contributors": [
+    "Menno Spijker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/temsinternettecnologies/temsit.nl.git"
+  },
+  "dependencies": {
+    "bootstrap": "4.0.0",
+    "font-awesome": "4.7.0",
+    "jquery": "3.3.1",
+    "simple-line-icons": "^2.4.1"
+  },
+  "devDependencies": {
+    "browser-sync": "2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "3.9.2",
+    "gulp-header": "2.0.1",
+    "gulp-rename": "^1.2.3",
+    "gulp-sass": "^3.1.0"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}
