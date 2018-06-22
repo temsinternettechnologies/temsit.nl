@@ -64,7 +64,8 @@ try {
     </div>
 </nav>
 
-<!-- Masthead -->
+<?php
+/*<!-- Masthead -->
 <!--<header class="masthead text-white text-center">
     <div class="overlay"></div>
     <div class="container">
@@ -89,8 +90,9 @@ try {
                 </div>
         </div>
     </div>
-</header>-->
+</header>-->*/
 
+?>
 <header class="masthead-teampower text-white text-center">
     <div class="overlay"></div>
     <div class="container p-2">
@@ -178,17 +180,16 @@ try {
         <div class="row p-5">
             <div class="col-lg-6">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="img/temp/img_avatar3.png" alt="Tycho E.">
+                    <img class="img-fluid rounded-circle mb-3" src="img/tycho.jpg" alt="Tycho E.">
                     <h5>Tycho Engberink</h5>
-                    <p class="font-weight-light mb-0">"Lorem ipsum"</p>
+                    <p class="font-weight-light mb-0">Ik ben een spontane hardwerkende student altijd die openstaat voor een nieuw avontuur.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="img/temp/img_avatar3.png" alt="Menno S.">
+                    <img class="img-fluid rounded-circle mb-3" src="img/menno.jpg" alt="Menno S.">
                     <h5>Menno Spijker</h5>
-                    <p class="font-weight-light mb-0">"Ik ben een spontane en creatieve student in de sector ICT.
-                        Mijn interesses liggen merendeels in computers maar ook zeker in het buitenleven."</p>
+                    <p class="font-weight-light mb-0">Ik ben een creatieve student in de sector ICT. Na mijn MBO afgerond te hebben, begin ik binnenkort aan mijn HBO.</p>
                 </div>
             </div>
         </div>
@@ -221,7 +222,6 @@ try {
     </div>
 </section>
 
-<!-- Call to Action -->
 <section class="call-to-action text-white text-center">
     <div class="overlay"></div>
     <div class="container">
