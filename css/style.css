@@ -224,6 +224,50 @@ header.masthead-iphoneX h1 {
   }
 }
 
+header.masthead-teampower {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/teambuilding-1500x981.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+header.masthead-teampower .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+header.masthead-teampower h1 {
+  font-size: 2rem;
+}
+
+@media (max-width: 1152px) {
+  header.masthead-teampower {
+    background-position-y: unset;
+  }
+}
+
+@media (min-width: 768px) {
+  header.masthead-teampower {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+  }
+  header.masthead-teampower h1 {
+    font-size: 3rem;
+  }
+}
+
 header.masthead-testimonials {
   position: relative;
   background-color: #343a40;

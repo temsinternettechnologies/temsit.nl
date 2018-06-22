@@ -91,11 +91,17 @@ try {
     </div>
 </header>-->
 
-<header class="masthead-iphoneX text-white text-center">
+<header class="masthead-teampower text-white text-center">
     <div class="overlay"></div>
-    <div class="container p-2" style="margin-bottom: 100px"><br/></div>
+    <div class="container p-2">
+        <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5">TEMS Internet Technologies<br/>Dé website bouwer voor starters!</h1>
+        </div>
+    </div>
 </header>
-
+<section class="text-center mt-5">
+    <h1>Wat gebruiken wij?</h1>
+</section>
 <!-- Icons Grid -->
 <section class="features-icons bg-fifth-light text-center">
     <div class="container">
