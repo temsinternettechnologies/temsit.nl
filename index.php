@@ -10,13 +10,15 @@ try {
 <html lang="nl">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="<?=$content->meta_description?>">
     <meta name="author" content="Menno Spijker, Tycho Engberink">
-
+    <meta name="robots" content="index, follow">
+    
     <title><?=$content->title?></title>
+
+    <meta name="keywords" content="website laten maken, goedkope website laten maken, websitebouwer, websites voor starters">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
