@@ -3,7 +3,8 @@ require "init.php";
 try {
     $content = Database::select("SELECT * FROM pages WHERE url = '/'")[0];
 }catch(Exception $e){
-    $content = array("title" => "TEMS Internet Technologies", "meta_title" => "TEMS Internet Technologies, voor een betere website.", "meta_description" => "TEMSIT staat bekend om zijn snelle service en goede kwaliteit.");
+    echo "Er heeft zich een onverwachte fout voorgedaan. Onze ontwikkelaars zijn op de hoogte gesteld.";
+    exit("[Content error]");
 }
 ?>
 <!DOCTYPE html>
@@ -15,7 +16,7 @@ try {
     <meta name="description" content="<?=$content->meta_description?>">
     <meta name="author" content="Menno Spijker, Tycho Engberink">
     <meta name="robots" content="index, follow">
-    
+
     <title><?=$content->title?></title>
 
     <meta name="keywords" content="website laten maken, goedkope website laten maken, websitebouwer, websites voor starters">
