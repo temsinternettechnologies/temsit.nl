@@ -106,7 +106,7 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../img/bg-masthead-2280x1520.jpg");
+  background: url("../img/bg-masthead-2280x400.jpg");
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -224,21 +224,21 @@ header.masthead-iphoneX h1 {
   }
 }
 
-header.masthead-teampower {
+header.masthead-blur {
   position: relative;
   background-color: #343a40;
-  background: url("../img/teambuilding-1500x981.jpg");
+  background: url("../img/bg-masthead-blur-resized.jpg");
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding-top: 10rem;
-  padding-bottom: 8rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
-header.masthead-teampower .overlay {
+header.masthead-blur .overlay {
   position: absolute;
   background-color: #212529;
   height: 100%;
@@ -248,22 +248,18 @@ header.masthead-teampower .overlay {
   opacity: 0.3;
 }
 
-header.masthead-teampower h1 {
+header.masthead-blur h1 {
   font-size: 2rem;
 }
 
 @media (max-width: 1152px) {
-  header.masthead-teampower {
+  header.masthead-blur {
     background-position-y: unset;
   }
 }
 
 @media (min-width: 768px) {
-  header.masthead-teampower {
-    padding-top: 14rem;
-    padding-bottom: 14rem;
-  }
-  header.masthead-teampower h1 {
+  header.masthead-blur h1 {
     font-size: 3rem;
   }
 }
@@ -378,6 +374,7 @@ header.masthead-testimonials h1 {
 
 .testimonials-no-image {
   position: relative;
+  background-color: #ededed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -406,7 +403,7 @@ header.masthead-testimonials h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("../img/bg-masthead-2280x1520.jpg") no-repeat center center;
+  background: url("../img/bg-masthead-2280x400.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

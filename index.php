@@ -96,7 +96,7 @@ try {
 </header>-->*/
 
 ?>
-<header class="masthead-teampower text-white text-center">
+<header class="masthead-blur text-white text-center">
     <div class="overlay"></div>
     <div class="container p-2">
         <div class="col-xl-9 mx-auto">
@@ -110,7 +110,7 @@ try {
 <!-- Icons Grid -->
 <section class="features-icons bg-fifth-light text-center">
     <div class="container">
-        <div class="row p-5">
+        <div class="row p-2">
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">

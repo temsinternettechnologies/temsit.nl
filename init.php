@@ -10,3 +10,4 @@ define("PORT", "3306");
 new Database(HOST,USERNAME,PASSWORD,DATABASE, PORT);
 
 require_once("functions.php");
+
