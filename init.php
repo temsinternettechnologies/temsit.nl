@@ -1,5 +1,6 @@
 <?php
 require_once("classes/Database.class.php");
+require_once("classes/Cookies.class.php");
 
 define("HOST", "localhost");
 define("USERNAME", "temsit");
@@ -9,5 +10,11 @@ define("PORT", "3306");
 
 new Database(HOST,USERNAME,PASSWORD,DATABASE, PORT);
 
+define("COOKIE_EXPIRATION", time() + (86400 * (365 / 12)));
+
+new Cookies(COOKIE_EXPIRATION);
+
 require_once("functions.php");
 
+
+// TODO add cookie message
