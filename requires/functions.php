@@ -27,6 +27,7 @@ function getIP()
 function getRequestUri()
 {
     if (strpos($_SERVER['REQUEST_URI'], "temsit.nl")) {
+        echo 1;
         $array = explode("/", $_SERVER['REQUEST_URI']);
         $request = "/";
         foreach ($array as $key => $value) {
@@ -36,6 +37,7 @@ function getRequestUri()
         }
         return $request;
     } else {
+        echo 2;
         $array = explode("/", $_SERVER['REQUEST_URI']);
         $request = "/";
         foreach ($array as $key => $value) {
