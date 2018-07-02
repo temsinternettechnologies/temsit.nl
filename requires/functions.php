@@ -26,22 +26,22 @@ function getIP()
 
 function getRequestUri()
 {
+    $request = "/";
+
     if (strpos($_SERVER['REQUEST_URI'], "temsit.nl")) {
         echo 1;
         $array = explode("/", $_SERVER['REQUEST_URI']);
-        $request = "/";
         foreach ($array as $key => $value) {
             if ($value != "temsit.nl" && $value != "") {
                 $request .= $value . "/";
             }
         }
-        return $request;
     } else {
         echo 2;
         $array = explode("/", $_SERVER['REQUEST_URI']);
-        $request = "/";
         foreach ($array as $key => $value) {
             $request .= $value . "/";
         }
     }
+    return $request;
 }
