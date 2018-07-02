@@ -1,5 +1,5 @@
 <?php
-require_once("requires/init_ajax.php");
+require_once("/init.php");
 
 switch ($_GET['a']){
     case "cookie_accept":

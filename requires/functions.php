@@ -21,3 +21,16 @@ function getIP(){
     }
     return $ip;
 }
+
+function getRequestUri(){
+    if (strpos($_SERVER['REQUEST_URI'], "temsit.nl")){
+        $array = explode("/" , $_SERVER['REQUEST_URI']);
+        $request = "/";
+        foreach ($array as $key => $value){
+            if ($value != "temsit.nl" && $value != ""){
+                $request .= $value . "/";
+            }
+        }
+            return $request;
+    }
+}
