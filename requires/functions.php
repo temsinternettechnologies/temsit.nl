@@ -29,20 +29,19 @@ function getRequestUri()
     $request = "/";
 
     if (strpos($_SERVER['REQUEST_URI'], "temsit.nl")) {
-        echo 1;
         $array = explode("/", $_SERVER['REQUEST_URI']);
         foreach ($array as $key => $value) {
             if ($value != "temsit.nl" && $value != "") {
                 $request .= $value . "/";
             }
         }
-    } else {
-        echo 2;
+    } else if ($_SERVER['REQUEST_URI'] != "/") {
         $array = explode("/", $_SERVER['REQUEST_URI']);
         foreach ($array as $key => $value) {
             $request .= $value . "/";
         }
+    }else {
+        return "/";
     }
-    echo $_SERVER['REQUEST_URI'];
     return $request;
 }
