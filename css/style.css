@@ -224,46 +224,6 @@ header.masthead-iphoneX h1 {
   }
 }
 
-header.masthead-blur {
-  position: relative;
-  background-color: #343a40;
-  background: url("../img/bg-masthead-blur-resized.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-header.masthead-blur .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-}
-
-header.masthead-blur h1 {
-  font-size: 2rem;
-}
-
-@media (max-width: 1152px) {
-  header.masthead-blur {
-    background-position-y: unset;
-  }
-}
-
-@media (min-width: 768px) {
-  header.masthead-blur h1 {
-    font-size: 3rem;
-  }
-}
-
 header.masthead-testimonials {
   position: relative;
   background-color: #343a40;
@@ -292,6 +252,76 @@ header.masthead-testimonials h1 {
 
 @media (min-width: 768px) {
   header.masthead-testimonials h1 {
+    font-size: 3rem;
+  }
+}
+
+header.masthead-blur {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/bg-masthead-blur-resized-500.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media screen and (min-width: 500px) and (max-width: 750px) {
+  header.masthead-blur {
+    background: url("../img/bg-masthead-blur-resized-750.jpg");
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1000px) {
+  header.masthead-blur {
+    background: url("../img/bg-masthead-blur-resized-1000.jpg");
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
+  header.masthead-blur {
+    background: url("../img/bg-masthead-blur-resized-1500.jpg");
+  }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 2000px) {
+  header.masthead-blur {
+    background: url("../img/bg-masthead-blur-resized-2000.jpg");
+  }
+}
+
+@media screen and (min-width: 2001px) {
+  header.masthead-blur {
+    background: url("../img/bg-masthead-blur-resized-full.jpg");
+  }
+}
+
+header.masthead-blur .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+header.masthead-blur h1 {
+  font-size: 2rem;
+}
+
+@media (max-width: 1152px) {
+  header.masthead-blur {
+    background-position-y: unset;
+  }
+}
+
+@media (min-width: 768px) {
+  header.masthead-blur h1 {
     font-size: 3rem;
   }
 }
@@ -420,6 +450,76 @@ header.masthead-testimonials h1 {
   top: 0;
   left: 0;
   opacity: 0.3;
+}
+
+.cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  background-color: #212529;
+  color: white;
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+.cookies .cookie_wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.cookies .cookie_wrapper .content {
+  padding: 2rem 1rem 1rem 1rem;
+  width: 91%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cookies .cookie_wrapper .close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+
+.cookies .cookie_wrapper .close:hover {
+  opacity: 1;
+}
+
+.cookies .cookie_wrapper .close:before, .cookies .cookie_wrapper .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #ddd;
+}
+
+.cookies .cookie_wrapper .close:before {
+  transform: rotate(45deg);
+}
+
+.cookies .cookie_wrapper .close:after {
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 1400px) {
+  .cookies {
+    background-color: mediumpurple;
+    color: white;
+    opacity: 0.9;
+  }
+  .cookies .cookie_wrapper .content {
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    padding: 1rem 0.5rem;
+  }
 }
 
 footer.footer {

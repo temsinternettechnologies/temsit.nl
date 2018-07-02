@@ -1,7 +1,7 @@
 <footer class="footer bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <div class="col-lg-6 text-center text-lg-left my-auto">
                 <ul class="list-inline mb-2">
                     <li class="list-inline-item">
                         <a href="/wij/">Over temsIT</a>
@@ -22,7 +22,7 @@
                 <p class="text-muted small mb-4 mb-lg-0">&copy; temsit.nl <?php echo getCopyrightText()?>. All Rights Reserved.</p>
             </div>
             <!-- TODO: add socialmedia links. -->
-            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            <div class="col-lg-6 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
                         <a href="#" class="not-active" target="_blank">

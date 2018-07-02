@@ -12,10 +12,11 @@ try {
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?=$content->meta_description?>">
     <meta name="author" content="Menno Spijker, Tycho Engberink">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="">
 
     <title><?=$content->title?></title>
 
@@ -317,6 +318,12 @@ include "footer.php";
 
 
     $(document).ready(function () {
+        $("#cookie_close").click(function () {
+            $.post("ajax.php?a=cookie_accept",true,function () {
+                $(".cookies").remove();
+            });
+        });
+
         $("#form-top-btn").click(function () {
             var email = $("#form-top-input").val();
             if (validateEmail(email)) {

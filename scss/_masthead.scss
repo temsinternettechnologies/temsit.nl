@@ -80,45 +80,12 @@ header.masthead-iphoneX {
   h1 {
     font-size: 2rem;
   }
-  @media (max-width: 1152px){
+  @media (max-width: 1152px) {
     background-position-y: unset;
   }
   @media (min-width: 768px) {
     padding-top: 14rem;
     padding-bottom: 14rem;
-    h1 {
-      font-size: 3rem;
-    }
-  }
-}
-
-header.masthead-blur {
-  position: relative;
-  background-color: $gray-800;
-  background: url('../img/bg-masthead-blur-resized.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  @include background-cover;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  .overlay {
-    position: absolute;
-    background-color: $gray-900;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  @media (max-width: 1152px){
-    background-position-y: unset;
-  }
-  @media (min-width: 768px) {
-    //padding-top: 14rem;
-    //padding-bottom: 14rem;
     h1 {
       font-size: 3rem;
     }
@@ -150,3 +117,59 @@ header.masthead-testimonials {
     }
   }
 }
+
+header.masthead-blur {
+  position: relative;
+  background-color: $gray-800;
+
+  background: url('../img/bg-masthead-blur-resized-500.jpg');
+
+  @media screen and (min-width: 500px) and (max-width: 750px) {
+    background: url('../img/bg-masthead-blur-resized-750.jpg');
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 1000px) {
+    background: url('../img/bg-masthead-blur-resized-1000.jpg');
+  }
+
+  @media screen and (min-width: 1000px) and (max-width: 1500px) {
+    background: url('../img/bg-masthead-blur-resized-1500.jpg');
+  }
+
+  @media screen and (min-width: 1500px) and (max-width: 2000px) {
+    background: url('../img/bg-masthead-blur-resized-2000.jpg');
+  }
+
+  @media screen and (min-width: 2001px) {
+    background: url('../img/bg-masthead-blur-resized-full.jpg');
+  }
+
+  background-position: center;
+  background-repeat: no-repeat;
+  @include background-cover;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  .overlay {
+    position: absolute;
+    background-color: $gray-900;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  @media (max-width: 1152px) {
+    background-position-y: unset;
+  }
+  @media (min-width: 768px) {
+    //padding-top: 14rem;
+    //padding-bottom: 14rem;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
