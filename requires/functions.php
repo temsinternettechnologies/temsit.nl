@@ -43,5 +43,6 @@ function getRequestUri()
             $request .= $value . "/";
         }
     }
+    echo $_SERVER['REQUEST_URI'];
     return $request;
 }
