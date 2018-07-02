@@ -1,5 +1,5 @@
 <?php
-require_once("/init.php");
+require_once("init.php");
 
 switch ($_GET['a']){
     case "cookie_accept":
