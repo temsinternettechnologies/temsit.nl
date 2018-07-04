@@ -101,3 +101,13 @@ h6 {
     display: none;
   }
 }
+.socialmedia {
+  color: #777;
+  :hover {
+    color: #555;
+  }
+}
+
+.bg-fade-down {
+  background: linear-gradient(rgba(0,0,0,0.33), rgba(0,0,0,0));
+}

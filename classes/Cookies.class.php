@@ -30,10 +30,10 @@ class Cookies
     }
 
     public static function CookiesEnabled(){
-        setcookie("test_cookie", "test", time() + 5, '/');
+        setcookie("TC", "1", time() + 5, '/');
 
         if(count($_COOKIE) > 0) {
-            setcookie("test_cookie", "test", time() + -5, '/');
+            setcookie("TC", "1", time() + -5, '/');
             return true;
         } else {
             return false;

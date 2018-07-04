@@ -21,21 +21,20 @@
                 </ul>
                 <p class="text-muted small mb-4 mb-lg-0">&copy; temsit.nl <?php echo getCopyrightText()?>. All Rights Reserved.</p>
             </div>
-            <!-- TODO: add socialmedia links. -->
             <div class="col-lg-6 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
-                        <a href="#" class="not-active" target="_blank">
+                        <a href="https://www.facebook.com/TemsInternetTechnologies/" class="socialmedia" target="_blank">
                             <i class="fab fa-facebook fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3">
-                        <a href="https://twitter.com/tems_it" target="_blank">
+                        <a href="https://twitter.com/tems_it" class="socialmedia" target="_blank">
                             <i class="fab fa-twitter fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://www.instagram.com/temsinternettechnologies/" target="_blank">
+                        <a href="https://www.instagram.com/temsinternettechnologies/" class="socialmedia" target="_blank">
                             <i class="fab fa-instagram fa-2x fa-fw"></i>
                         </a>
                     </li>

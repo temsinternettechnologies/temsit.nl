@@ -103,6 +103,18 @@ h6 {
   }
 }
 
+.socialmedia {
+  color: #777;
+}
+
+.socialmedia :hover {
+  color: #555;
+}
+
+.bg-fade-down {
+  background: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0));
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;
@@ -460,7 +472,7 @@ header.masthead-blur h1 {
   height: auto;
   background-color: #212529;
   color: white;
-  opacity: 0.8;
+  opacity: 0.85;
   z-index: 1000;
 }
 
@@ -509,9 +521,7 @@ header.masthead-blur h1 {
 
 @media (min-width: 1400px) {
   .cookies {
-    background-color: mediumpurple;
     color: white;
-    opacity: 0.9;
   }
   .cookies .cookie_wrapper .content {
     text-align: left;
