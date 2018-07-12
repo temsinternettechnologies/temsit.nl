@@ -339,7 +339,6 @@ header.masthead-blur h1 {
 }
 
 header.masthead-empty {
-  position: relative;
   padding: 50px;
   border-top: 1px solid #e0e0e0;
   background-color: #fafafa;
