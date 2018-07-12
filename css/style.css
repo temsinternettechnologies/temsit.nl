@@ -338,6 +338,18 @@ header.masthead-blur h1 {
   }
 }
 
+header.masthead-empty {
+  position: relative;
+  padding: 50px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+header.masthead-empty h2 {
+  color: #000;
+  text-shadow: 0 0 5px #eee;
+}
+
 .showcase {
   margin-bottom: 5px;
 }
