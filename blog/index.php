@@ -22,12 +22,8 @@ if (!$value = Cookies::getCookie("TID")) {
 }
 
 loadTemplate("navbar");
-try {
-    $blogs = Database::select("SELECT * FROM blogs order by id desc limit 20");
-}catch (Exception $e){
-    $e->getMessage();
-}
-var_dump($blogs);
+$blogs = Database::select("SELECT * FROM blogs order by id desc limit 20");
+
 if (count($blogs)) {
     echo "<div class='blogs pt-2 pb-2'><div class='container'><div class='row no-gutters'> ";
     $count = 0;
@@ -46,10 +42,8 @@ if (count($blogs)) {
         <?php
     }
 
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-}else{
+    echo "</div></div></div>";
+} else {
     echo "<div style='height: 73vh; border-top: solid 1px #e0e0e0; border-bottom: solid 1px #e0e0e0;'><h3 class='lead text-center m-5 p-5'>Er zijn helaas geen blogs gevonden, probeer het later opnieuw.</h3></div>";
 }
 loadTemplate("footer");
