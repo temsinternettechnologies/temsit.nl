@@ -14,11 +14,9 @@ define("COOKIE_EXPIRATION", time() + (86400 * (365 / 12)));
 
 new Cookies(COOKIE_EXPIRATION);
 
-require_once("requires/functions.php");
-
-$now = date("d-m-y h:m:s");
-if($id = Database::select(sprintf("select id from visitors where ip = '%s'", getIP()))) {
-    Database::update("visitors", array("last_seen" => $now), "id", $id[0]->id);
-}else {
-    Database::insert("visitors", array("ip" => getIP(), "alias" => null, "last_seen" => $now));
+if($_SERVER['HTTP_HOST'] != "localhost") {
+    require_once("requires/functions.php");
+}else{
+    require_once("requires/localhost_functions.php");
 }
+saveIP();

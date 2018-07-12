@@ -6,7 +6,7 @@ require_once("init.php");
 
 <head>
     <?php
-    require_once("template/main/head.php");
+    loadTemplate("head");
     ?>
 </head>
 
@@ -19,15 +19,15 @@ if (!$value = Cookies::getCookie("TID")) {
     Cookies::setCookie("TID", $value);
 }
 
-require_once("template/main/navbar.php");
-require_once("template/sub/header-quote.php");
-require_once("template/sub/wat_doen_wij.php");
-require_once("template/sub/features-wat_gebruiken_wij.php");
-require_once("template/sub/showcase-2x3-wat_gebruiken_wij.php");
-require_once("template/sub/testimonials-full.php");
-require_once("template/sub/cal-to-action.php");
-require_once("template/main/footer.php");
-require_once("template/main/scripts.php");
+loadTemplate("navbar");
+loadSub("header");
+loadSub("sub-header");
+loadSub("features");
+loadSub("showcase");
+loadSub("testimonials");
+loadSub("call-to-action");
+loadTemplate("footer");
+loadTemplate("scripts");
 ?>
 
 </body>

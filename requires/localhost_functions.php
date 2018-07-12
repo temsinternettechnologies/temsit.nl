@@ -28,17 +28,18 @@ function getRequestUri()
 {
     if (getIP() != "::1") {
         return $_SERVER['REQUEST_URI'];
-    }else {
+    } else {
         $len = strlen("temsit.nl") + 1;
-        return substr($_SERVER['REQUEST_URI'], $len ,20);
+        return substr($_SERVER['REQUEST_URI'], $len, 20);
     }
 }
 
-function saveIP(){
+function saveIP()
+{
     $now = date("d-m-y h:m:s");
-    if($id = Database::select(sprintf("select id from visitors where ip = '%s'", getIP()))) {
+    if ($id = Database::select(sprintf("select id from visitors where ip = '%s'", getIP()))) {
         Database::update("visitors", array("last_seen" => $now), "id", $id[0]->id);
-    }else {
+    } else {
         Database::insert("visitors", array("ip" => getIP(), "alias" => null, "last_seen" => $now));
     }
 
@@ -46,15 +47,14 @@ function saveIP(){
 
 function loadSub($file)
 {
-    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/template/sub/" . $file . ".php")) {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/template/sub/" . $file . ".php");
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/temsit.nl/template/sub/" . $file . ".php")) {
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/temsit.nl/template/sub/" . $file . ".php");
     }
 }
 
 function loadTemplate($file)
 {
-    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/template/main/" . $file . ".php")) {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/template/main/" . $file . ".php");
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/temsit.nl/template/main/" . $file . ".php")) {
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/temsit.nl/template/main/" . $file . ".php");
     }
 }
-

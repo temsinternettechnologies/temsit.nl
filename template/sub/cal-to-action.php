@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto">
-                <h2 class="mb-4">Klaar voor je eigen website? meld je nu aan!</h2>
+                <h2 class="mb-4">Klaar voor je eigen website? Meld je nu aan!</h2>
             </div>
             <div class="col-md-12 col-lg-10 col-xl-8 mx-auto">
                 <div class="form-row" id="form-bottom">
