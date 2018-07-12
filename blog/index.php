@@ -23,6 +23,7 @@ if (!$value = Cookies::getCookie("TID")) {
 
 loadTemplate("navbar");
 $blogs = Database::select("SELECT * FROM blogs order by id desc limit 20");
+var_dump($blogs);
 if (count($blogs)) {
     echo "<div class='blogs pt-2 pb-2'><div class='container'><div class='row no-gutters'> ";
     $count = 0;
