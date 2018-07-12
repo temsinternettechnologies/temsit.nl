@@ -230,10 +230,6 @@ class Database
         $items[] = $item;
     }
 
-    if (!count($items)){
-        throw new Exception("No results", 1);
-    }
-
     if ($simplify && count($items) == 1) {
         $items = $items[0];
     }
