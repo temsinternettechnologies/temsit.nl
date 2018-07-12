@@ -23,6 +23,7 @@ try {
     <meta name="author" content="Menno Spijker, Tycho Engberink">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="">
+    <meta name="google-site-verification" content="EA5iv8f1DlpCyjVBdo73sU2_q44YDZ2EAPDl0koqjQw" />
 
     <title><?= $content->title ?></title>
 
