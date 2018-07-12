@@ -10,7 +10,7 @@
 <script>
     $(document).ready(function () {
         $("#cookie_close").click(function () {
-            $.post("ajax.php?a=cookie_accept", true, function () {
+            $.post("/ajax.php?a=cookie_accept", true, function () {
                 $(".cookies").remove();
             });
         });
