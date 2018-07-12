@@ -165,8 +165,6 @@ header.masthead-blur {
     background-position-y: unset;
   }
   @media (min-width: 768px) {
-    //padding-top: 14rem;
-    //padding-bottom: 14rem;
     h1 {
       font-size: 3rem;
     }
@@ -174,7 +172,6 @@ header.masthead-blur {
 }
 
 header.masthead-empty {
-  position: relative;
   padding: 50px;
   border-top: 1px solid #e0e0e0;
   background-color: #fafafa;

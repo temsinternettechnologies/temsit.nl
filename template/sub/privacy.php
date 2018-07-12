@@ -2,10 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-1">
-                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                    <div class="features-icons-icon d-flex">
-                        <i class="icon icon-eyeglass m-auto"></i>
-                    </div>
+                <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <h4>Aanmelding</h4>
                     <hr/>
                     <p class="lead mb-0">Wanneer u zich met uw emailadres aanmeld voor 'meer informatie' wordt uw
