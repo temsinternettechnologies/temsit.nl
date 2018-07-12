@@ -115,6 +115,34 @@ h6 {
   background: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0));
 }
 
+.blogs {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.blog {
+  z-index: 100;
+  margin: 1%;
+  padding: 0;
+  background-color: white;
+  border: solid 1px #ddd;
+}
+
+@media (min-width: 751px) {
+  .blog {
+    width: 48%;
+  }
+}
+
+@media (max-width: 750px) {
+  .blog {
+    width: 98%;
+  }
+}
+
+.blog:hover {
+  box-shadow: 0px 0px 5px #aaa;
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;

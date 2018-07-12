@@ -229,22 +229,16 @@ class Database
     while ($item = mysqli_fetch_object($result)) {
         $items[] = $item;
     }
+
+    if (!count($items)){
+        throw new Exception("No results", 1);
+    }
+
     if ($simplify && count($items) == 1) {
         $items = $items[0];
     }
-    return $items;
-}
 
-public static function login($data)
-{
-    if (isset($data["email"]) && isset($data["password"])) {
-        $query = sprintf("SELECT id FROM users WHERE `email` = '%s' AND `password` = '%s'", $data["email"], $data["password"]);
-        $result = self::select($query);
-        if (isset($result[0]->id)){
-            return $result[0];
-        }
-    }
-    return 0;
+    return $items;
 }
 
     /**
