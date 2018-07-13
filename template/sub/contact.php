@@ -1,7 +1,7 @@
 <section class="features-icons bg-light text-center">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 offset-1">
+            <div class="col-lg-10 offset-lg-1">
                 <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="d-flex">
                         <a href="mailto:info@temsit.nl" style="margin: 0 auto"><i

@@ -1,7 +1,7 @@
 <section class="bg-light text-center pb-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 offset-1">
+            <div class="col-lg-10 offset-lg-1">
                 <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <h4>Aanmelding</h4>
                     <hr/>

@@ -25,7 +25,7 @@ loadSub("sub-header");
 loadSub("features");
 loadSub("showcase");
 loadSub("testimonials");
-loadSub("call-to-action");
+loadSub("cal-to-action");
 loadTemplate("footer");
 loadTemplate("scripts");
 ?>
