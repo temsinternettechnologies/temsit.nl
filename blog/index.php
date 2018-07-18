@@ -86,7 +86,7 @@ if (isset($_GET['cat'])) {
         <?php
         foreach ($categorys as $cat) {
             ?>
-            <div class="blog-category" style="<?=$cat->style?>; cursor: pointer" onclick="location.href = '/blog/?cat=<?= $cat->id ?>'">
+            <div class="blog-category" style="<?=$cat->style?>; cursor: pointer" onclick="location.href = '/blog/<?= $cat->id ?>/'">
                 <h1><?=$cat->title?></h1>
                 <p><?=$cat->description?></p>
             </div>
