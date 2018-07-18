@@ -27,10 +27,12 @@ function getIP()
 function getRequestUri()
 {
     if (getIP() != "::1") {
-        return $_SERVER['REQUEST_URI'];
-    }else {
+        return  substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], "?"));
+    } else {
         $len = strlen("temsit.nl") + 1;
-        return substr($_SERVER['REQUEST_URI'], $len ,20);
+        $res = substr($_SERVER['REQUEST_URI'], $len, 20);
+        $res = substr($res, 0, strpos($res, "?"));
+        return $res;
     }
 }
 

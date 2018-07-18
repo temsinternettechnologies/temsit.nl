@@ -40,7 +40,7 @@ if (isset($_GET['category'])) {
 
     if (count($blogs)) {
         ?>
-        <div class='blogs pt-2 pb-2'>
+        <div class='blogs pt-2 pb-2' style="min-height: 80vh">
             <div class='container'>
                 <div class='row no-gutters'>
                     <?php
@@ -77,11 +77,12 @@ if (isset($_GET['category'])) {
 } else {
     $categorys = Database::select("select * from blog_category");
     ?>
-    <div class="container mb-2">
+    <div class="container mb-2" style="min-height: 65vh">
+        <h1 class="text-center" style="color: #404">Waar ben je naar op zoek?</h1>
         <?php
         foreach ($categorys as $cat) {
             ?>
-            <div class="blog-category" style="<?=$cat->style?>">
+            <div class="blog-category" style="<?=$cat->style?>; cursor: pointer" onclick="location.href = '/blog/?cat=<?= $cat->id ?>'">
                 <h1><?=$cat->title?></h1>
                 <p><?=$cat->description?></p>
             </div>
