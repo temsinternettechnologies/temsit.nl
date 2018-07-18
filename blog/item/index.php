@@ -47,7 +47,7 @@ if (count($blog)) {
     <?php
 } else {
     ?>
-    <div style='height: 73vh; border-top: solid 1px #e0e0e0; border-bottom: solid 1px #e0e0e0;'>
+    <div style='height: 73vh; border-bottom: solid 1px #e0e0e0;'>
         <h3 class='lead text-center m-5 p-5'>
             Het door jou bezochte blog is op dit moment niet bereikbaar, probeer het later opnieuw.
         </h3>

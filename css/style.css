@@ -147,6 +147,39 @@ h6 {
   text-decoration: none;
 }
 
+.blog-category {
+  display: inline-block;
+  position: relative;
+  height: 250px;
+  margin: 0.2%;
+  padding: 0;
+}
+
+@media (min-width: 751px) {
+  .blog-category {
+    width: 49.4%;
+  }
+}
+
+@media (max-width: 750px) {
+  .blog-category {
+    width: 99.4%;
+    margin-bottom: 2.33%;
+  }
+}
+
+.blog-category h1 {
+  text-align: center;
+  padding-top: 75px;
+  color: white;
+}
+
+.blog-category p {
+  text-align: center;
+  padding-top: 25px;
+  color: #e0e0e0;
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;
