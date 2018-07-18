@@ -1,8 +1,6 @@
 <?php
 require "../init.php";
 
-$blogs = Database::select("SELECT * FROM blogs order by id desc limit 20");
-
 function getCategory($id)
 {
     try {
@@ -19,7 +17,11 @@ function getCategory($id)
 
 <head>
     <?php
-    loadTemplate("head");
+    if (!isset($_GET['cat'])) {
+        loadTemplate("head");
+    }else{
+        loadTemplate("blog-category-head");
+    }
     ?>
 </head>
 
@@ -36,7 +38,9 @@ if (!$value = Cookies::getCookie("TID")) {
 loadTemplate("navbar");
 loadTemplate("blog-navbar");
 
-if (isset($_GET['category'])) {
+if (isset($_GET['cat'])) {
+    $categoryId = Database::escape($_GET["cat"]);
+    $blogs = Database::select(sprintf("SELECT * FROM blogs where category_id = %d order by id desc limit 20", $categoryId));
 
     if (count($blogs)) {
         ?>
