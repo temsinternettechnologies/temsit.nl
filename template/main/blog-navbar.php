@@ -6,13 +6,9 @@ if (isset($_GET['cat'])){
     $catid = Database::select(sprintf("select category_id from blogs where id = %d", Database::escape($_GET['id'])))[0]->category_id;
 }
 ?>
-<nav class="navbar navbar-light navbar-expand-lg text-white bg-primary static-top mb-2" style="box-shadow:0 0 5px #aaa; z-index: 99;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnav"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color:white;">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-light navbar-expand text-white bg-primary static-top mb-2" style="box-shadow:0 0 5px #aaa; z-index: 99;">
 
-    <div class="collapse navbar-collapse" id="subnav">
+    <div style="overflow: auto; white-space: nowrap;">
         <ul class="navbar-nav mr-auto container">
             <?php
             foreach ($category as $cat) {
