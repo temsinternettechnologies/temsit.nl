@@ -27,6 +27,14 @@ $blog = Database::select(sprintf("SELECT * FROM blogs where id = %d", $blogId))[
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
       type="text/css">
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4928043878967484",
+        enable_page_level_ads: true
+    });
+</script>
+
 <!-- Custom styles for this template -->
 
 <?php
