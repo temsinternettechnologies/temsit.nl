@@ -1,5 +1,8 @@
 <?php
 $category = Database::select("select * from blog_category");
+if (isset($_GET['cat'])){
+    $catid = $_GET['cat'];
+}
 ?>
 <nav class="navbar navbar-light navbar-expand-lg text-white bg-primary static-top mb-2" style="box-shadow:0 0 5px #aaa; z-index: 99;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnav"
@@ -13,7 +16,7 @@ $category = Database::select("select * from blog_category");
             foreach ($category as $cat) {
                 ?>
                 <li class="nav-item">
-                    <a href="/blog/<?= $cat->id ?>/" class="nav-link text-light"
+                    <a href="/blog/<?= $cat->id ?>/" class="nav-link text-light" style="<?php if($cat->id == $catid){ echo 'border-bottom: solid 2px #f0f0f0';}?>"
                        rel="noopener"><?= $cat->title ?></a>
                 </li>
                 <?php
