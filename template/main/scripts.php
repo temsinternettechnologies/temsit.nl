@@ -6,7 +6,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-<script src="/scripts.js"></script>
+<script src="/scripts.js?v=<?=BUILD?>"></script>
 <script>
     $(document).ready(function () {
         $("#cookie_close").click(function () {

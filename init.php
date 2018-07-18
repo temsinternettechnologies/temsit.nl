@@ -20,3 +20,5 @@ if($_SERVER['HTTP_HOST'] != "localhost") {
     require_once("requires/localhost_functions.php");
 }
 saveIP();
+
+define("BUILD" , "1.0");
