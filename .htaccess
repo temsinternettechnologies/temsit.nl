@@ -1,5 +1,6 @@
 RewriteEngine On
 RewriteRule ^blog/([0-9]+)/$ blog/?cat=$1 [NC]
+RewriteRule ^blog/item/([0-9]+)/$ blog/item/?id=$1 [NC]
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} !=localhost
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
