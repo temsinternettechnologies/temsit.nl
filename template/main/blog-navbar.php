@@ -2,6 +2,8 @@
 $category = Database::select("select * from blog_category");
 if (isset($_GET['cat'])){
     $catid = $_GET['cat'];
+}else if (isset($_GET['id'])){
+    $catid = Database::select(sprintf("select category_id from blog where id = %d", Database::escape($_GET['id'])))[0];
 }
 ?>
 <nav class="navbar navbar-light navbar-expand-lg text-white bg-primary static-top mb-2" style="box-shadow:0 0 5px #aaa; z-index: 99;">
