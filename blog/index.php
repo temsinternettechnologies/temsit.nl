@@ -56,7 +56,7 @@ if (isset($_GET['cat'])) {
                             $class = "col-lg-5 offset-lg-2 col-md-5 offset-md-2";
                         }
                         ?>
-                        <div class="blog" onclick="location.href = '/blog/item/?id=<?= $blog->id ?>'">
+                        <div class="blog" onclick="location.href = '/blog/item/<?= $blog->id ?>/'">
                             <img style="width: 100%;" src="/img/<?= $blog->img ?>" alt="<?= $blog->subject ?>">
                             <p class="text-center m-0"
                                style="font-size: 0.8rem; color: #aaa;"><?= getCategory($blog->category_id) ?></p>

@@ -38,7 +38,7 @@ loadTemplate("blog-navbar");
 if (count($blog)) {
     ?>
     <div class="container p-0" style="">
-        <div style="position: relative; height: 300px; background: url('../../img/<?= $blog->img ?>'); background-position: center; background-size: cover; background-repeat: no-repeat">
+        <div style="position: relative; height: 300px; background: url('/img/<?= $blog->img ?>'); background-position: center; background-size: cover; background-repeat: no-repeat">
         <p style="position:absolute; bottom: 0px; right: 20px; font-size: 0.8rem; color: #aaa;"><?= getCategory($blog->category_id) ?></p>
         </div>
         <h2 class="p-3"><?= $blog->subject ?></h2>
