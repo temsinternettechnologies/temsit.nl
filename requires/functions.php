@@ -27,20 +27,30 @@ function getIP()
 function getRequestUri()
 {
     if (getIP() != "::1") {
-        return  substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], "?"));
+        $res = substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], "?"));
+        if ($res) {
+            return $res;
+        } else {
+            return $_SERVER['REQUEST_URI'];
+        }
     } else {
         $len = strlen("temsit.nl") + 1;
         $res = substr($_SERVER['REQUEST_URI'], $len, 20);
         $res = substr($res, 0, strpos($res, "?"));
-        return $res;
+        if ($res) {
+            return $res;
+        } else {
+            return $res = substr($_SERVER['REQUEST_URI'], $len, 20);
+        }
     }
 }
 
-function saveIP(){
+function saveIP()
+{
     $now = date("d-m-y h:m:s");
-    if($id = Database::select(sprintf("select id from visitors where ip = '%s'", getIP()))) {
+    if ($id = Database::select(sprintf("select id from visitors where ip = '%s'", getIP()))) {
         Database::update("visitors", array("last_seen" => $now), "id", $id[0]->id);
-    }else {
+    } else {
         Database::insert("visitors", array("ip" => getIP(), "alias" => null, "last_seen" => $now));
     }
 
