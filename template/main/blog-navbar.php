@@ -8,7 +8,7 @@ if (isset($_GET['cat'])){
 ?>
 <nav class="navbar navbar-light navbar-expand-lg text-white bg-primary static-top mb-2" style="box-shadow:0 0 5px #aaa; z-index: 99;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnav"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color:white;">
         <span class="navbar-toggler-icon"></span>
     </button>
 
