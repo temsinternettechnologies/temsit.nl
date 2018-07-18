@@ -13,7 +13,7 @@ $category = Database::select("select * from blog_category");
             foreach ($category as $cat) {
                 ?>
                 <li class="nav-item">
-                    <a href="/blog/<?= $cat->title ?>/" class="nav-link text-light"
+                    <a href="/blog/<?= $cat->id ?>/" class="nav-link text-light"
                        rel="noopener"><?= $cat->title ?></a>
                 </li>
                 <?php
