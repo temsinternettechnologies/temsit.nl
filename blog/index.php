@@ -50,11 +50,6 @@ if (isset($_GET['cat'])) {
                     <?php
                     $count = 0;
                     foreach ($blogs as $blog) {
-                        if ($count % 2 == 0) {
-                            $class = "col-lg-6 col-md-6";
-                        } else {
-                            $class = "col-lg-5 offset-lg-2 col-md-5 offset-md-2";
-                        }
                         ?>
                         <div class="blog" onclick="location.href = '/blog/item/<?= $blog->id ?>/'">
                             <img style="width: 100%;" src="/img/<?= $blog->img ?>" alt="<?= $blog->subject ?>">
@@ -88,7 +83,7 @@ if (isset($_GET['cat'])) {
             ?>
             <div class="blog-category" style="<?=$cat->style?>; cursor: pointer" onclick="location.href = '/blog/<?= $cat->id ?>/'">
                 <h1><?=$cat->title?></h1>
-                <p><?=$cat->description?></p>
+                <p class="w-75 mx-auto"><?=$cat->description?></p>
             </div>
             <?php
         }
