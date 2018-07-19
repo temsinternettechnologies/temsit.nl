@@ -8,8 +8,8 @@ if (isset($_GET['cat'])){
 ?>
 <nav class="navbar navbar-light navbar-expand text-white bg-primary static-top mb-2" style="box-shadow:0 0 5px #aaa; z-index: 99;">
 
-    <div style="overflow: auto; white-space: nowrap;">
-        <ul class="navbar-nav mr-auto container">
+    <div style="overflow: auto; white-space: nowrap;" class="container">
+        <ul class="navbar-nav mr-auto">
             <?php
             foreach ($category as $cat) {
                 ?>
