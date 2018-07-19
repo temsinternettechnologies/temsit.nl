@@ -57,7 +57,7 @@ if (count($blog)) {
     <?php
 }
 ?>
-<div class="container">
+<div class="container text-center">
     <script type="text/javascript">
         (function () {
             if (window.CHITIKA === undefined) {
@@ -73,7 +73,7 @@ if (count($blog)) {
             };
             var placement_id = window.CHITIKA.units.length;
             window.CHITIKA.units.push(unit);
-            document.write('<div class="mx-auto" id="chitikaAdBlock-' + placement_id + '"></div>');
+            document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
         }());
     </script>
     <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
