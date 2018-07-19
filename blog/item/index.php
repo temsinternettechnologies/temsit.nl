@@ -3,14 +3,16 @@ require "../../init.php";
 $blogId = Database::escape($_GET["id"]);
 $blog = Database::select(sprintf("SELECT * FROM blogs where id = %d", $blogId))[0];
 
-function getCategory($id){
-    try{
+function getCategory($id)
+{
+    try {
         $category = Database::select(sprintf("select * from blog_category where id = %d", $id))[0];
         return $category->title;
-    }catch (Exception $e){
+    } catch (Exception $e) {
         return null;
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -39,7 +41,7 @@ if (count($blog)) {
     ?>
     <div class="container p-0" style="">
         <div style="position: relative; height: 300px; background: url('/img/<?= $blog->img ?>'); background-position: center; background-size: cover; background-repeat: no-repeat">
-        <p style="position:absolute; bottom: 0px; right: 20px; font-size: 0.8rem; color: #aaa;"><?= getCategory($blog->category_id) ?></p>
+            <p style="position:absolute; bottom: 0px; right: 20px; font-size: 0.8rem; color: #aaa;"><?= getCategory($blog->category_id) ?></p>
         </div>
         <h2 class="p-3"><?= $blog->subject ?></h2>
         <p class="p-3 mb-0"><?= $blog->content ?></p>
@@ -49,11 +51,32 @@ if (count($blog)) {
     ?>
     <div style='height: 73vh; border-bottom: solid 1px #e0e0e0;'>
         <h3 class='lead text-center m-5 p-5'>
-            Het door jou bezochte blog is op dit moment niet bereikbaar, probeer het later opnieuw.
+            Het door jou bezochte blog is op dit moment niet beschikbaar, probeer het later opnieuw.
         </h3>
     </div>
     <?php
 }
+?>
+<script type="text/javascript">
+    (function () {
+        if (window.CHITIKA === undefined) {
+            window.CHITIKA = {'units': []};
+        }
+        ;
+        var unit = {
+            "calltype": "async[2]",
+            "publisher": "temsit",
+            "width": 728,
+            "height": 90,
+            "sid": "Chitika Default"
+        };
+        var placement_id = window.CHITIKA.units.length;
+        window.CHITIKA.units.push(unit);
+        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+    }());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+<?php
 loadTemplate("footer");
 loadTemplate("scripts");
 ?>

@@ -40,7 +40,7 @@ loadTemplate("blog-navbar");
 
 if (isset($_GET['cat'])) {
     $categoryId = Database::escape($_GET["cat"]);
-    $blogs = Database::select(sprintf("SELECT * FROM blogs where category_id = %d order by id desc limit 20", $categoryId));
+    $blogs = Database::select(sprintf("SELECT * FROM blogs where category_id = %d and is_active = true order by id desc limit 20", $categoryId));
 
     if (count($blogs)) {
         ?>
@@ -77,7 +77,7 @@ if (isset($_GET['cat'])) {
     $categorys = Database::select("select * from blog_category");
     ?>
     <div class="container mb-2" style="min-height: 65vh">
-        <h1 class="text-center" style="color: #404">Waar ben je naar op zoek?</h1>
+        <h1 class="text-center p-2" style="color: #404">Waar ben je naar op zoek?</h1>
         <?php
         foreach ($categorys as $cat) {
             ?>
