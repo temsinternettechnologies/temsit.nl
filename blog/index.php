@@ -51,7 +51,7 @@ if (isset($_GET['cat'])) {
                     $count = 0;
                     foreach ($blogs as $blog) {
                         ?>
-                        <div class="blog" onclick="location.href = '/blog/item/<?= $blog->id ?>/'">
+                        <div class="blog" onclick="location.href = '/blog/item/<?= $blog->id ?>/'" style="cursor: pointer">
                             <img style="width: 100%;" src="/img/<?= $blog->img ?>" alt="<?= $blog->subject ?>">
                             <p class="text-center m-0"
                                style="font-size: 0.8rem; color: #aaa;"><?= getCategory($blog->category_id) ?></p>

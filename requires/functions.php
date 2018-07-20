@@ -48,10 +48,10 @@ function getRequestUri()
 function saveIP()
 {
     $now = date("d-m-y h:m:s");
-    if ($id = Database::select(sprintf("select id from visitors where ip = '%s'", getIP()))) {
-        Database::update("visitors", array("last_seen" => $now), "id", $id[0]->id);
+    if ($visitor = Database::select(sprintf("select id, hits from visitors where ip = '%s'", getIP()))) {
+        Database::update("visitors", array("last_seen" => $now, "hits" => ($visitor[0]->hits + 1)), "id", $visitor[0]->id);
     } else {
-        Database::insert("visitors", array("ip" => getIP(), "alias" => null, "last_seen" => $now));
+        Database::insert("visitors", array("ip" => getIP(), "alias" => null, "last_seen" => $now, "hits" => 1));
     }
 
 }
