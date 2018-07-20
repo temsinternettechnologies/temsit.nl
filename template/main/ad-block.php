@@ -1,4 +1,4 @@
-<div class="container text-center my-2" id="adblock">
+<!--<div class="container text-center my-2" id="adblock">
     <script type="text/javascript">
         (function () {
             if (window.CHITIKA === undefined) {
@@ -18,4 +18,4 @@
         }());
     </script>
     <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
-</div>
+</div>-->

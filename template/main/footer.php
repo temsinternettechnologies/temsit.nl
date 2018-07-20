@@ -28,17 +28,17 @@
             <div class="col-lg-4 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
-                        <a href="https://www.facebook.com/TemsInternetTechnologies/" class="socialmedia" target="_blank">
+                        <a href="https://www.facebook.com/TemsInternetTechnologies/" class="socialmedia" target="_blank" onclick="gtag([`_trackEvent`, `SocialMedia`, `Klik`, `Facebook` , 1])">
                             <i class="fab fa-facebook fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3">
-                        <a href="https://twitter.com/tems_it" class="socialmedia" target="_blank">
+                        <a href="https://twitter.com/tems_it" class="socialmedia" target="_blank" onclick="gtag([`_trackEvent`, `SocialMedia`, `Klik`, `Twitter`, 1])">
                             <i class="fab fa-twitter fa-2x fa-fw"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://www.instagram.com/temsinternettechnologies/" class="socialmedia" target="_blank">
+                        <a href="https://www.instagram.com/temsinternettechnologies/" class="socialmedia" target="_blank" onclick="gtag([`_trackEvent`, `SocialMedia`, `Klik`, `Instagram`, 1])">
                             <i class="fab fa-instagram fa-2x fa-fw"></i>
                         </a>
                     </li>
