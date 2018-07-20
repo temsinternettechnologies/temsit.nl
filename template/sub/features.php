@@ -3,7 +3,7 @@
         <div class="row p-2">
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                    <h3>Volledig resposive</h3>
+                    <h3>Volledig responsive</h3>
                     <p class="lead mb-0">De websites die door ons ontwikkeld zijn zien er goed uit op elk apparaat, voor
                         elk formaat!</p>
                 </div>

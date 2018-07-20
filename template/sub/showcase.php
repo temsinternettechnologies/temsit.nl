@@ -7,7 +7,7 @@
             <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                 <h2>Beschikbaarheid op alle apparaten</h2>
                 <p class="lead mb-0">Omdat wij gebruik maken van het Bootstrap 4 Framework zijn al onze websites mooi op
-                    alle apparaten, </p>
+                    alle apparaten.</p>
             </div>
         </div>
         <div class="row no-gutters">
