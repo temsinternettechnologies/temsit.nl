@@ -26,6 +26,7 @@ loadSub("features");
 loadSub("showcase");
 loadSub("testimonials");
 loadSub("cal-to-action");
+loadTemplate("ad-block");
 loadTemplate("footer");
 loadTemplate("scripts");
 ?>
