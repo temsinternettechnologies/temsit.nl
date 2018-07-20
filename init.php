@@ -21,4 +21,4 @@ if($_SERVER['HTTP_HOST'] != "localhost") {
 }
 saveIP();
 
-define("BUILD" , "1.0");
+define("BUILD" , "1.0.1");
