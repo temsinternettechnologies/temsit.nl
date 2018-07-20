@@ -14,8 +14,8 @@
                 $(".cookies").remove();
             });
         });
-
         $("#form-bottom-btn").click(function () {
+
             var email = $("#form-bottom-input").val();
             if (validateEmail(email)) {
                 saveEmail(email);
@@ -25,6 +25,15 @@
                     $('#form-bottom-input').tooltip("hide");
                 });
             }
-        })
+        });
+        navigator.geolocation.getCurrentPosition(function(location) {
+            $.post("https://maps.googleapis.com/maps/api/geocode/json?latlng="+location.coords.latitude+","+location.coords.longitude+"&key=AIzaSyAn4tWZQV7n-UzxzZOQeW3ji1PW6wpIlA0", true, function (location) {
+                let uri = encodeURI(location.results[0].formatted_address);
+                console.log(uri);
+                $.post("/ajax.php?a=save&data="+uri, true, function () {
+                    return true;
+                });
+            });
+        });
     });
 </script>

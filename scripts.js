@@ -48,3 +48,4 @@ function thankyouMessage() {
     $("#form-bottom").removeClass('form-row');
     $("#form-bottom").html("<h2>Bedankt!</h2><h3> Wij zullen zo spoedig mogelijk contact opnemen.</h3>");
 }
+

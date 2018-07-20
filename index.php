@@ -30,7 +30,6 @@ loadTemplate("ad-block");
 loadTemplate("footer");
 loadTemplate("scripts");
 ?>
-
 </body>
 
 </html>
