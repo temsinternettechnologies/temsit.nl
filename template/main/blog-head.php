@@ -40,11 +40,11 @@ $blog = Database::select(sprintf("SELECT * FROM blogs where id = %d", $blogId))[
 <?php
 if ($_SERVER['REMOTE_ADDR'] != "::1") {
     ?>
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style.css?v=<?=BUILD?>" rel="stylesheet">
     <?php
 }else {
     ?>
-    <link href="/temsit.nl/css/style.css" rel="stylesheet">
+    <link href="/temsit.nl/css/style.css?v=<?=BUILD?>" rel="stylesheet">
 
     <?php
 }
