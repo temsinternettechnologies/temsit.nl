@@ -47,6 +47,7 @@ function getRequestUri()
 
 function saveIP()
 {
+    date_default_timezone_set('Europe/Amsterdam');
     $now = date("d-m-y h:m:s");
     if ($visitor = Database::select(sprintf("select id, hits from visitors where ip = '%s'", getIP()))) {
         Database::update("visitors", array("last_seen" => $now, "hits" => ($visitor[0]->hits + 1)), "id", $visitor[0]->id);
